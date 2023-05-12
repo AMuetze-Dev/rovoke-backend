@@ -23,7 +23,6 @@ public class LoggerService {
 
 	private synchronized static void log(Level level, String msg) {
 		final LoggerService handler = new LoggerService();
-		System.out.println(level.getName() + ": " + msg);
 		handler.logger.log(level, msg + "\n");
 		handler.handler.close();
 	}
