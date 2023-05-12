@@ -20,29 +20,28 @@ public class JDBCDriverConnection {
 			throws SQLException {
 		String prep = "";
 		String query = String.format("INSERT INTO %s.\"%s\"(", destScheme, destTable);
-		for(int i = 0; i < updateObjects.length; i++) {
+		for (int i = 0; i < updateObjects.length; i++) {
 			query += updateObjects[i].getColumn();
 			prep += updateObjects[i].isTextArray() ? "?::text[]" : "?";
-			if(i+1 != updateObjects.length) {
+			if (i + 1 != updateObjects.length) {
 				query += ",";
 				prep += ",";
 			}
 		}
 		query += ") VALUES (" + prep + ");";
 
-		LoggerService.info(query);
-		Connection con = getConnection();
+		final Connection con = getConnection();
 		final PreparedStatement statement = con.prepareStatement(query);
-		for(int i = 0; i < updateObjects.length; i++) {
-			if(updateObjects[i].isText())
-				statement.setString(i+1,updateObjects[i].getTextValue());
-			else if(updateObjects[i].isInt())
-				statement.setInt(i+1, updateObjects[i].getIntValue());
-			else if(updateObjects[i].isNumeric())
-				statement.setDouble(i+1, updateObjects[i].getDoubleValue());
+		for (int i = 0; i < updateObjects.length; i++)
+			if (updateObjects[i].isText())
+				statement.setString(i + 1, updateObjects[i].getTextValue());
+			else if (updateObjects[i].isInt())
+				statement.setInt(i + 1, updateObjects[i].getIntValue());
+			else if (updateObjects[i].isNumeric())
+				statement.setDouble(i + 1, updateObjects[i].getDoubleValue());
 			else
-				statement.setArray(i+1, con.createArrayOf("text", updateObjects[i].getTextArray()));
-		}
+				statement.setArray(i + 1, con.createArrayOf("text", updateObjects[i].getTextArray()));
+		LoggerService.info(statement.toString());
 		statement.executeUpdate();
 	}
 

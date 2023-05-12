@@ -1,0 +1,66 @@
+CREATE SCHEMA IF NOT EXISTS recipebook;
+
+CREATE TABLE IF NOT EXISTS recipebook."Ingredients" (
+	id serial PRIMARY KEY,
+	name text NOT NULL,
+	protein numeric,
+	carbohydrates numeric,
+	fat numeric
+);
+
+CREATE TABLE IF NOT EXISTS recipebook."Kinds" (
+	id serial PRIMARY KEY,
+	name text NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS recipebook."Units" (
+	id serial PRIMARY KEY,
+	name text NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS recipebook."Recipes" (
+	id serial PRIMARY KEY,
+	title text NOT NULL,
+	difficulty integer NOT NULL,
+	preparation integer NOT NULL,
+	cooking integer NOT NULL,
+	kind_id integer NOT NULL,
+	instructions text[],
+	
+	CONSTRAINT "kind_fk" FOREIGN KEY (kind_id) REFERENCES recipebook."Kinds" (id)
+);
+
+CREATE TABLE IF NOT EXISTS recipebook."Recipe_Ingredients" (
+	id serial PRIMARY KEY,
+	ingredient_id integer NOT NULL,
+	amount numeric,
+	recipe_id integer NOT NULL,
+	unit_id integer NOT NULL,
+	
+	CONSTRAINT "ingredient_fk" FOREIGN KEY (ingredient_id) REFERENCES recipebook."Ingredients" (id),
+	CONSTRAINT "recipe_fk" FOREIGN KEY (recipe_id) REFERENCES recipebook."Recipes" (id),
+	CONSTRAINT "unit_fk" FOREIGN KEY(unit_id) REFERENCES recipebook."Units" (id)
+);
+
+CREATE SCHEMA IF NOT EXISTS dogschool;
+
+CREATE TABLE IF NOT EXISTS dogschool."Course" (
+	id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+	name text NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS dogschool."Section" (
+	id uuid PRIMARY KEY,
+	name text NOT NULL,
+	course_id uuid NOT NULL,
+	
+	CONSTRAINT "course_fk" FOREIGN KEY (course_id) REFERENCES dogschool."Course" (id)
+);
+
+CREATE TABLE IF NOT EXISTS dogschool."Video" (
+	id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+	name text NOT NULL,
+	section_id uuid NOT NULL,
+	
+	CONSTRAINT "section_fk" FOREIGN KEY (section_id) REFERENCES dogschool."Section" (id)
+);

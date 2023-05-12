@@ -1,0 +1,5 @@
+DROP TABLE IF EXISTS recipebook."Recipe_Ingredients" CASCADE;
+DROP TABLE IF EXISTS recipebook."Recipes" CASCADE;
+DROP TABLE IF EXISTS recipebook."Units" CASCADE;
+DROP TABLE IF EXISTS recipebook."Kinds" CASCADE;
+DROP TABLE IF EXISTS recipebook."Ingredients" CASCADE;

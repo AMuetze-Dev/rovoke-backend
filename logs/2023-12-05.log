@@ -25,3 +25,324 @@ SEVERE 11:40:03 [org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl
   INFO 11:40:03 INSERT INTO recipebook."Kinds"(name) VALUES (?);
   INFO 11:40:03 Verbindung zur Datenbank wird versucht aufzubauen.
 SEVERE 11:40:03 [org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:301), org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:51), org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:225), org.postgresql.Driver.makeConnection(Driver.java:466), org.postgresql.Driver.connect(Driver.java:265), java.sql/java.sql.DriverManager.getConnection(DriverManager.java:683), java.sql/java.sql.DriverManager.getConnection(DriverManager.java:253), de.amit.controller.JDBCDriverConnection.getConnection(JDBCDriverConnection.java:75), de.amit.controller.JDBCDriverConnection.executeAdd(JDBCDriverConnection.java:34), de.amit.controller.serviceTemplates.CategoryServiceImpl.add(CategoryServiceImpl.java:29), de.amit.LaunchApplication.main(LaunchApplication.java:50)]
+  INFO 14:51:11 INSERT INTO recipebook."Ingredients"(name,protein,carbohydrates,fat) VALUES (?,?,?,?);
+  INFO 14:51:11 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 14:51:12 Verbindung zur Datenbank wurde aufgebaut.
+SEVERE 14:51:12 [org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2674), org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2364), org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:354), org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:484), org.postgresql.jdbc.PgStatement.execute(PgStatement.java:404), org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:162), org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:130), de.amit.controller.JDBCDriverConnection.executeAdd(JDBCDriverConnection.java:46), de.amit.controller.serviceTemplates.CategoryServiceImpl.add(CategoryServiceImpl.java:29), de.amit.LaunchApplication.main(LaunchApplication.java:27)]
+  INFO 14:51:12 INSERT INTO recipebook."Ingredients"(name,protein,carbohydrates,fat) VALUES (?,?,?,?);
+  INFO 14:51:12 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 14:51:12 Verbindung zur Datenbank wurde aufgebaut.
+SEVERE 14:51:12 [org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2674), org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2364), org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:354), org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:484), org.postgresql.jdbc.PgStatement.execute(PgStatement.java:404), org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:162), org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:130), de.amit.controller.JDBCDriverConnection.executeAdd(JDBCDriverConnection.java:46), de.amit.controller.serviceTemplates.CategoryServiceImpl.add(CategoryServiceImpl.java:29), de.amit.LaunchApplication.main(LaunchApplication.java:31)]
+  INFO 14:51:12 INSERT INTO recipebook."Ingredients"(name,protein,carbohydrates,fat) VALUES (?,?,?,?);
+  INFO 14:51:12 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 14:51:12 Verbindung zur Datenbank wurde aufgebaut.
+SEVERE 14:51:12 [org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2674), org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2364), org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:354), org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:484), org.postgresql.jdbc.PgStatement.execute(PgStatement.java:404), org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:162), org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:130), de.amit.controller.JDBCDriverConnection.executeAdd(JDBCDriverConnection.java:46), de.amit.controller.serviceTemplates.CategoryServiceImpl.add(CategoryServiceImpl.java:29), de.amit.LaunchApplication.main(LaunchApplication.java:35)]
+  INFO 14:51:12 INSERT INTO recipebook."Units"(name) VALUES (?);
+  INFO 14:51:12 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 14:51:12 Verbindung zur Datenbank wurde aufgebaut.
+SEVERE 14:51:12 [org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2674), org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2364), org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:354), org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:484), org.postgresql.jdbc.PgStatement.execute(PgStatement.java:404), org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:162), org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:130), de.amit.controller.JDBCDriverConnection.executeAdd(JDBCDriverConnection.java:46), de.amit.controller.serviceTemplates.CategoryServiceImpl.add(CategoryServiceImpl.java:29), de.amit.LaunchApplication.main(LaunchApplication.java:42)]
+  INFO 14:51:12 INSERT INTO recipebook."Units"(name) VALUES (?);
+  INFO 14:51:12 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 14:51:12 Verbindung zur Datenbank wurde aufgebaut.
+SEVERE 14:51:12 [org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2674), org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2364), org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:354), org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:484), org.postgresql.jdbc.PgStatement.execute(PgStatement.java:404), org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:162), org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:130), de.amit.controller.JDBCDriverConnection.executeAdd(JDBCDriverConnection.java:46), de.amit.controller.serviceTemplates.CategoryServiceImpl.add(CategoryServiceImpl.java:29), de.amit.LaunchApplication.main(LaunchApplication.java:43)]
+  INFO 14:51:12 INSERT INTO recipebook."Units"(name) VALUES (?);
+  INFO 14:51:12 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 14:51:12 Verbindung zur Datenbank wurde aufgebaut.
+SEVERE 14:51:12 [org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2674), org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2364), org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:354), org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:484), org.postgresql.jdbc.PgStatement.execute(PgStatement.java:404), org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:162), org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:130), de.amit.controller.JDBCDriverConnection.executeAdd(JDBCDriverConnection.java:46), de.amit.controller.serviceTemplates.CategoryServiceImpl.add(CategoryServiceImpl.java:29), de.amit.LaunchApplication.main(LaunchApplication.java:44)]
+  INFO 14:51:12 INSERT INTO recipebook."Kinds"(name) VALUES (?);
+  INFO 14:51:12 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 14:51:12 Verbindung zur Datenbank wurde aufgebaut.
+SEVERE 14:51:12 [org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2674), org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2364), org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:354), org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:484), org.postgresql.jdbc.PgStatement.execute(PgStatement.java:404), org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:162), org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:130), de.amit.controller.JDBCDriverConnection.executeAdd(JDBCDriverConnection.java:46), de.amit.controller.serviceTemplates.CategoryServiceImpl.add(CategoryServiceImpl.java:29), de.amit.LaunchApplication.main(LaunchApplication.java:48)]
+  INFO 14:51:12 INSERT INTO recipebook."Kinds"(name) VALUES (?);
+  INFO 14:51:12 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 14:51:12 Verbindung zur Datenbank wurde aufgebaut.
+SEVERE 14:51:12 [org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2674), org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2364), org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:354), org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:484), org.postgresql.jdbc.PgStatement.execute(PgStatement.java:404), org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:162), org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:130), de.amit.controller.JDBCDriverConnection.executeAdd(JDBCDriverConnection.java:46), de.amit.controller.serviceTemplates.CategoryServiceImpl.add(CategoryServiceImpl.java:29), de.amit.LaunchApplication.main(LaunchApplication.java:49)]
+  INFO 14:51:12 INSERT INTO recipebook."Kinds"(name) VALUES (?);
+  INFO 14:51:12 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 14:51:12 Verbindung zur Datenbank wurde aufgebaut.
+SEVERE 14:51:12 [org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2674), org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2364), org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:354), org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:484), org.postgresql.jdbc.PgStatement.execute(PgStatement.java:404), org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:162), org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:130), de.amit.controller.JDBCDriverConnection.executeAdd(JDBCDriverConnection.java:46), de.amit.controller.serviceTemplates.CategoryServiceImpl.add(CategoryServiceImpl.java:29), de.amit.LaunchApplication.main(LaunchApplication.java:50)]
+  INFO 14:54:38 INSERT INTO recipebook."Ingredients"(name,protein,carbohydrates,fat) VALUES (?,?,?,?);
+  INFO 14:54:38 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 14:54:38 Verbindung zur Datenbank wurde aufgebaut.
+SEVERE 14:54:38 [org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2674), org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2364), org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:354), org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:484), org.postgresql.jdbc.PgStatement.execute(PgStatement.java:404), org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:162), org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:130), de.amit.controller.JDBCDriverConnection.executeAdd(JDBCDriverConnection.java:46), de.amit.controller.serviceTemplates.CategoryServiceImpl.add(CategoryServiceImpl.java:29), de.amit.LaunchApplication.main(LaunchApplication.java:27)]
+  INFO 14:54:38 INSERT INTO recipebook."Ingredients"(name,protein,carbohydrates,fat) VALUES (?,?,?,?);
+  INFO 14:54:38 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 14:54:38 Verbindung zur Datenbank wurde aufgebaut.
+SEVERE 14:54:38 [org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2674), org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2364), org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:354), org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:484), org.postgresql.jdbc.PgStatement.execute(PgStatement.java:404), org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:162), org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:130), de.amit.controller.JDBCDriverConnection.executeAdd(JDBCDriverConnection.java:46), de.amit.controller.serviceTemplates.CategoryServiceImpl.add(CategoryServiceImpl.java:29), de.amit.LaunchApplication.main(LaunchApplication.java:31)]
+  INFO 14:54:38 INSERT INTO recipebook."Ingredients"(name,protein,carbohydrates,fat) VALUES (?,?,?,?);
+  INFO 14:54:38 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 14:54:38 Verbindung zur Datenbank wurde aufgebaut.
+SEVERE 14:54:38 [org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2674), org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2364), org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:354), org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:484), org.postgresql.jdbc.PgStatement.execute(PgStatement.java:404), org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:162), org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:130), de.amit.controller.JDBCDriverConnection.executeAdd(JDBCDriverConnection.java:46), de.amit.controller.serviceTemplates.CategoryServiceImpl.add(CategoryServiceImpl.java:29), de.amit.LaunchApplication.main(LaunchApplication.java:35)]
+  INFO 14:54:38 INSERT INTO recipebook."Units"(name) VALUES (?);
+  INFO 14:54:38 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 14:54:38 Verbindung zur Datenbank wurde aufgebaut.
+SEVERE 14:54:38 [org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2674), org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2364), org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:354), org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:484), org.postgresql.jdbc.PgStatement.execute(PgStatement.java:404), org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:162), org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:130), de.amit.controller.JDBCDriverConnection.executeAdd(JDBCDriverConnection.java:46), de.amit.controller.serviceTemplates.CategoryServiceImpl.add(CategoryServiceImpl.java:29), de.amit.LaunchApplication.main(LaunchApplication.java:42)]
+  INFO 14:54:38 INSERT INTO recipebook."Units"(name) VALUES (?);
+  INFO 14:54:38 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 14:54:38 Verbindung zur Datenbank wurde aufgebaut.
+SEVERE 14:54:38 [org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2674), org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2364), org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:354), org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:484), org.postgresql.jdbc.PgStatement.execute(PgStatement.java:404), org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:162), org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:130), de.amit.controller.JDBCDriverConnection.executeAdd(JDBCDriverConnection.java:46), de.amit.controller.serviceTemplates.CategoryServiceImpl.add(CategoryServiceImpl.java:29), de.amit.LaunchApplication.main(LaunchApplication.java:43)]
+  INFO 14:54:38 INSERT INTO recipebook."Units"(name) VALUES (?);
+  INFO 14:54:38 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 14:54:38 Verbindung zur Datenbank wurde aufgebaut.
+SEVERE 14:54:38 [org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2674), org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2364), org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:354), org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:484), org.postgresql.jdbc.PgStatement.execute(PgStatement.java:404), org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:162), org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:130), de.amit.controller.JDBCDriverConnection.executeAdd(JDBCDriverConnection.java:46), de.amit.controller.serviceTemplates.CategoryServiceImpl.add(CategoryServiceImpl.java:29), de.amit.LaunchApplication.main(LaunchApplication.java:44)]
+  INFO 14:54:38 INSERT INTO recipebook."Kinds"(name) VALUES (?);
+  INFO 14:54:38 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 14:54:38 Verbindung zur Datenbank wurde aufgebaut.
+SEVERE 14:54:38 [org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2674), org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2364), org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:354), org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:484), org.postgresql.jdbc.PgStatement.execute(PgStatement.java:404), org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:162), org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:130), de.amit.controller.JDBCDriverConnection.executeAdd(JDBCDriverConnection.java:46), de.amit.controller.serviceTemplates.CategoryServiceImpl.add(CategoryServiceImpl.java:29), de.amit.LaunchApplication.main(LaunchApplication.java:48)]
+  INFO 14:54:38 INSERT INTO recipebook."Kinds"(name) VALUES (?);
+  INFO 14:54:38 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 14:54:38 Verbindung zur Datenbank wurde aufgebaut.
+SEVERE 14:54:38 [org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2674), org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2364), org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:354), org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:484), org.postgresql.jdbc.PgStatement.execute(PgStatement.java:404), org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:162), org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:130), de.amit.controller.JDBCDriverConnection.executeAdd(JDBCDriverConnection.java:46), de.amit.controller.serviceTemplates.CategoryServiceImpl.add(CategoryServiceImpl.java:29), de.amit.LaunchApplication.main(LaunchApplication.java:49)]
+  INFO 14:54:38 INSERT INTO recipebook."Kinds"(name) VALUES (?);
+  INFO 14:54:38 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 14:54:38 Verbindung zur Datenbank wurde aufgebaut.
+SEVERE 14:54:38 [org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2674), org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2364), org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:354), org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:484), org.postgresql.jdbc.PgStatement.execute(PgStatement.java:404), org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:162), org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:130), de.amit.controller.JDBCDriverConnection.executeAdd(JDBCDriverConnection.java:46), de.amit.controller.serviceTemplates.CategoryServiceImpl.add(CategoryServiceImpl.java:29), de.amit.LaunchApplication.main(LaunchApplication.java:50)]
+  INFO 14:56:09 INSERT INTO recipebook."Ingredients"(name,protein,carbohydrates,fat) VALUES (?,?,?,?);
+  INFO 14:56:09 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 14:56:09 Verbindung zur Datenbank wurde aufgebaut.
+SEVERE 14:56:09 [org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2674), org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2364), org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:354), org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:484), org.postgresql.jdbc.PgStatement.execute(PgStatement.java:404), org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:162), org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:130), de.amit.controller.JDBCDriverConnection.executeAdd(JDBCDriverConnection.java:46), de.amit.controller.serviceTemplates.CategoryServiceImpl.add(CategoryServiceImpl.java:29), de.amit.LaunchApplication.main(LaunchApplication.java:27)]
+  INFO 14:56:09 INSERT INTO recipebook."Ingredients"(name,protein,carbohydrates,fat) VALUES (?,?,?,?);
+  INFO 14:56:09 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 14:56:09 Verbindung zur Datenbank wurde aufgebaut.
+SEVERE 14:56:09 [org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2674), org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2364), org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:354), org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:484), org.postgresql.jdbc.PgStatement.execute(PgStatement.java:404), org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:162), org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:130), de.amit.controller.JDBCDriverConnection.executeAdd(JDBCDriverConnection.java:46), de.amit.controller.serviceTemplates.CategoryServiceImpl.add(CategoryServiceImpl.java:29), de.amit.LaunchApplication.main(LaunchApplication.java:31)]
+  INFO 14:56:09 INSERT INTO recipebook."Ingredients"(name,protein,carbohydrates,fat) VALUES (?,?,?,?);
+  INFO 14:56:09 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 14:56:09 Verbindung zur Datenbank wurde aufgebaut.
+SEVERE 14:56:09 [org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2674), org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2364), org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:354), org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:484), org.postgresql.jdbc.PgStatement.execute(PgStatement.java:404), org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:162), org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:130), de.amit.controller.JDBCDriverConnection.executeAdd(JDBCDriverConnection.java:46), de.amit.controller.serviceTemplates.CategoryServiceImpl.add(CategoryServiceImpl.java:29), de.amit.LaunchApplication.main(LaunchApplication.java:35)]
+  INFO 14:56:09 INSERT INTO recipebook."Units"(name) VALUES (?);
+  INFO 14:56:09 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 14:56:09 Verbindung zur Datenbank wurde aufgebaut.
+SEVERE 14:56:09 [org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2674), org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2364), org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:354), org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:484), org.postgresql.jdbc.PgStatement.execute(PgStatement.java:404), org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:162), org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:130), de.amit.controller.JDBCDriverConnection.executeAdd(JDBCDriverConnection.java:46), de.amit.controller.serviceTemplates.CategoryServiceImpl.add(CategoryServiceImpl.java:29), de.amit.LaunchApplication.main(LaunchApplication.java:42)]
+  INFO 14:56:09 INSERT INTO recipebook."Units"(name) VALUES (?);
+  INFO 14:56:09 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 14:56:09 Verbindung zur Datenbank wurde aufgebaut.
+SEVERE 14:56:09 [org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2674), org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2364), org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:354), org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:484), org.postgresql.jdbc.PgStatement.execute(PgStatement.java:404), org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:162), org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:130), de.amit.controller.JDBCDriverConnection.executeAdd(JDBCDriverConnection.java:46), de.amit.controller.serviceTemplates.CategoryServiceImpl.add(CategoryServiceImpl.java:29), de.amit.LaunchApplication.main(LaunchApplication.java:43)]
+  INFO 14:56:09 INSERT INTO recipebook."Units"(name) VALUES (?);
+  INFO 14:56:09 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 14:56:09 Verbindung zur Datenbank wurde aufgebaut.
+SEVERE 14:56:09 [org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2674), org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2364), org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:354), org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:484), org.postgresql.jdbc.PgStatement.execute(PgStatement.java:404), org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:162), org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:130), de.amit.controller.JDBCDriverConnection.executeAdd(JDBCDriverConnection.java:46), de.amit.controller.serviceTemplates.CategoryServiceImpl.add(CategoryServiceImpl.java:29), de.amit.LaunchApplication.main(LaunchApplication.java:44)]
+  INFO 14:56:09 INSERT INTO recipebook."Kinds"(name) VALUES (?);
+  INFO 14:56:09 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 14:56:09 Verbindung zur Datenbank wurde aufgebaut.
+SEVERE 14:56:09 [org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2674), org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2364), org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:354), org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:484), org.postgresql.jdbc.PgStatement.execute(PgStatement.java:404), org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:162), org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:130), de.amit.controller.JDBCDriverConnection.executeAdd(JDBCDriverConnection.java:46), de.amit.controller.serviceTemplates.CategoryServiceImpl.add(CategoryServiceImpl.java:29), de.amit.LaunchApplication.main(LaunchApplication.java:48)]
+  INFO 14:56:09 INSERT INTO recipebook."Kinds"(name) VALUES (?);
+  INFO 14:56:09 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 14:56:09 Verbindung zur Datenbank wurde aufgebaut.
+SEVERE 14:56:09 [org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2674), org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2364), org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:354), org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:484), org.postgresql.jdbc.PgStatement.execute(PgStatement.java:404), org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:162), org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:130), de.amit.controller.JDBCDriverConnection.executeAdd(JDBCDriverConnection.java:46), de.amit.controller.serviceTemplates.CategoryServiceImpl.add(CategoryServiceImpl.java:29), de.amit.LaunchApplication.main(LaunchApplication.java:49)]
+  INFO 14:56:09 INSERT INTO recipebook."Kinds"(name) VALUES (?);
+  INFO 14:56:09 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 14:56:09 Verbindung zur Datenbank wurde aufgebaut.
+SEVERE 14:56:09 [org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2674), org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2364), org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:354), org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:484), org.postgresql.jdbc.PgStatement.execute(PgStatement.java:404), org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:162), org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:130), de.amit.controller.JDBCDriverConnection.executeAdd(JDBCDriverConnection.java:46), de.amit.controller.serviceTemplates.CategoryServiceImpl.add(CategoryServiceImpl.java:29), de.amit.LaunchApplication.main(LaunchApplication.java:50)]
+  INFO 15:00:10 DROP TABLE IF EXISTS recipebook."Recipe_Ingredients" CASCADE;
+  INFO 15:00:10 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 15:00:10 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 15:00:10 DROP TABLE IF EXISTS recipebook."Recipes" CASCADE;
+  INFO 15:00:10 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 15:00:10 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 15:00:10 DROP TABLE IF EXISTS recipebook."Units" CASCADE;
+  INFO 15:00:10 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 15:00:10 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 15:00:10 DROP TABLE IF EXISTS recipebook."Kinds" CASCADE;
+  INFO 15:00:10 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 15:00:10 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 15:00:10 DROP TABLE IF EXISTS recipebook."Ingredients" CASCADE;
+  INFO 15:00:10 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 15:00:10 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 15:00:10 Database deleted
+  INFO 15:00:10 CREATE TABLE IF NOT EXISTS recipebook."Ingredients" ( id serial PRIMARY KEY, name text NOT NULL, protein numeric, carbohydrates numeric, fat numeric );
+  INFO 15:00:10 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 15:00:10 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 15:00:10 Can't execute fileCreateTables
+  INFO 15:00:10 INSERT INTO recipebook."Ingredients"(name,protein,carbohydrates,fat) VALUES (?,?,?,?);
+  INFO 15:00:10 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 15:00:10 Verbindung zur Datenbank wurde aufgebaut.
+SEVERE 15:00:10 [org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2674), org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2364), org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:354), org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:484), org.postgresql.jdbc.PgStatement.execute(PgStatement.java:404), org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:162), org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:130), de.amit.controller.JDBCDriverConnection.executeAdd(JDBCDriverConnection.java:46), de.amit.controller.serviceTemplates.CategoryServiceImpl.add(CategoryServiceImpl.java:29), de.amit.LaunchApplication.main(LaunchApplication.java:27)]
+  INFO 15:00:10 INSERT INTO recipebook."Ingredients"(name,protein,carbohydrates,fat) VALUES (?,?,?,?);
+  INFO 15:00:10 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 15:00:10 Verbindung zur Datenbank wurde aufgebaut.
+SEVERE 15:00:10 [org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2674), org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2364), org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:354), org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:484), org.postgresql.jdbc.PgStatement.execute(PgStatement.java:404), org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:162), org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:130), de.amit.controller.JDBCDriverConnection.executeAdd(JDBCDriverConnection.java:46), de.amit.controller.serviceTemplates.CategoryServiceImpl.add(CategoryServiceImpl.java:29), de.amit.LaunchApplication.main(LaunchApplication.java:31)]
+  INFO 15:00:10 INSERT INTO recipebook."Ingredients"(name,protein,carbohydrates,fat) VALUES (?,?,?,?);
+  INFO 15:00:10 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 15:00:10 Verbindung zur Datenbank wurde aufgebaut.
+SEVERE 15:00:10 [org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2674), org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2364), org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:354), org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:484), org.postgresql.jdbc.PgStatement.execute(PgStatement.java:404), org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:162), org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:130), de.amit.controller.JDBCDriverConnection.executeAdd(JDBCDriverConnection.java:46), de.amit.controller.serviceTemplates.CategoryServiceImpl.add(CategoryServiceImpl.java:29), de.amit.LaunchApplication.main(LaunchApplication.java:35)]
+  INFO 15:00:10 INSERT INTO recipebook."Units"(name) VALUES (?);
+  INFO 15:00:10 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 15:00:10 Verbindung zur Datenbank wurde aufgebaut.
+SEVERE 15:00:10 [org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2674), org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2364), org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:354), org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:484), org.postgresql.jdbc.PgStatement.execute(PgStatement.java:404), org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:162), org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:130), de.amit.controller.JDBCDriverConnection.executeAdd(JDBCDriverConnection.java:46), de.amit.controller.serviceTemplates.CategoryServiceImpl.add(CategoryServiceImpl.java:29), de.amit.LaunchApplication.main(LaunchApplication.java:42)]
+  INFO 15:00:10 INSERT INTO recipebook."Units"(name) VALUES (?);
+  INFO 15:00:10 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 15:00:10 Verbindung zur Datenbank wurde aufgebaut.
+SEVERE 15:00:10 [org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2674), org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2364), org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:354), org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:484), org.postgresql.jdbc.PgStatement.execute(PgStatement.java:404), org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:162), org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:130), de.amit.controller.JDBCDriverConnection.executeAdd(JDBCDriverConnection.java:46), de.amit.controller.serviceTemplates.CategoryServiceImpl.add(CategoryServiceImpl.java:29), de.amit.LaunchApplication.main(LaunchApplication.java:43)]
+  INFO 15:00:10 INSERT INTO recipebook."Units"(name) VALUES (?);
+  INFO 15:00:10 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 15:00:10 Verbindung zur Datenbank wurde aufgebaut.
+SEVERE 15:00:10 [org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2674), org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2364), org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:354), org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:484), org.postgresql.jdbc.PgStatement.execute(PgStatement.java:404), org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:162), org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:130), de.amit.controller.JDBCDriverConnection.executeAdd(JDBCDriverConnection.java:46), de.amit.controller.serviceTemplates.CategoryServiceImpl.add(CategoryServiceImpl.java:29), de.amit.LaunchApplication.main(LaunchApplication.java:44)]
+  INFO 15:00:10 INSERT INTO recipebook."Kinds"(name) VALUES (?);
+  INFO 15:00:10 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 15:00:10 Verbindung zur Datenbank wurde aufgebaut.
+SEVERE 15:00:10 [org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2674), org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2364), org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:354), org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:484), org.postgresql.jdbc.PgStatement.execute(PgStatement.java:404), org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:162), org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:130), de.amit.controller.JDBCDriverConnection.executeAdd(JDBCDriverConnection.java:46), de.amit.controller.serviceTemplates.CategoryServiceImpl.add(CategoryServiceImpl.java:29), de.amit.LaunchApplication.main(LaunchApplication.java:48)]
+  INFO 15:00:10 INSERT INTO recipebook."Kinds"(name) VALUES (?);
+  INFO 15:00:10 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 15:00:10 Verbindung zur Datenbank wurde aufgebaut.
+SEVERE 15:00:10 [org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2674), org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2364), org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:354), org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:484), org.postgresql.jdbc.PgStatement.execute(PgStatement.java:404), org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:162), org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:130), de.amit.controller.JDBCDriverConnection.executeAdd(JDBCDriverConnection.java:46), de.amit.controller.serviceTemplates.CategoryServiceImpl.add(CategoryServiceImpl.java:29), de.amit.LaunchApplication.main(LaunchApplication.java:49)]
+  INFO 15:00:10 INSERT INTO recipebook."Kinds"(name) VALUES (?);
+  INFO 15:00:10 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 15:00:10 Verbindung zur Datenbank wurde aufgebaut.
+SEVERE 15:00:10 [org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2674), org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2364), org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:354), org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:484), org.postgresql.jdbc.PgStatement.execute(PgStatement.java:404), org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:162), org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:130), de.amit.controller.JDBCDriverConnection.executeAdd(JDBCDriverConnection.java:46), de.amit.controller.serviceTemplates.CategoryServiceImpl.add(CategoryServiceImpl.java:29), de.amit.LaunchApplication.main(LaunchApplication.java:50)]
+  INFO 15:01:55 DROP TABLE IF EXISTS recipebook."Recipe_Ingredients" CASCADE;
+  INFO 15:01:55 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 15:01:55 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 15:01:55 DROP TABLE IF EXISTS recipebook."Recipes" CASCADE;
+  INFO 15:01:55 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 15:01:55 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 15:01:55 DROP TABLE IF EXISTS recipebook."Units" CASCADE;
+  INFO 15:01:55 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 15:01:55 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 15:01:55 DROP TABLE IF EXISTS recipebook."Kinds" CASCADE;
+  INFO 15:01:55 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 15:01:55 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 15:01:55 DROP TABLE IF EXISTS recipebook."Ingredients" CASCADE;
+  INFO 15:01:55 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 15:01:55 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 15:01:55 Database deleted
+  INFO 15:01:55 CREATE SCHEMA IF NOT EXISTS recipebook;
+  INFO 15:01:55 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 15:01:55 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 15:01:55 CREATE TABLE IF NOT EXISTS recipebook."Ingredients" ( id serial PRIMARY KEY, name text NOT NULL, protein numeric, carbohydrates numeric, fat numeric );
+  INFO 15:01:55 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 15:01:55 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 15:01:55 CREATE TABLE IF NOT EXISTS recipebook."Kinds" ( id serial PRIMARY KEY, name text NOT NULL );
+  INFO 15:01:55 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 15:01:55 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 15:01:55 CREATE TABLE IF NOT EXISTS recipebook."Units" ( id serial PRIMARY KEY, name text NOT NULL );
+  INFO 15:01:55 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 15:01:55 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 15:01:55 CREATE TABLE IF NOT EXISTS recipebook."Recipes" ( id serial PRIMARY KEY, title text NOT NULL, difficulty integer NOT NULL, preparation integer NOT NULL, cooking integer NOT NULL, kind_id integer NOT NULL, instructions text[],  CONSTRAINT "kind_fk" FOREIGN KEY (kind_id) REFERENCES recipebook."Kinds" (id) );
+  INFO 15:01:55 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 15:01:55 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 15:01:55 CREATE TABLE IF NOT EXISTS recipebook."Recipe_Ingredients" ( id serial PRIMARY KEY, ingredient_id integer NOT NULL, amount numeric, recipe_id integer NOT NULL, unit_id integer NOT NULL,  CONSTRAINT "ingredient_fk" FOREIGN KEY (ingredient_id) REFERENCES recipebook."Ingredients" (id), CONSTRAINT "recipe_fk" FOREIGN KEY (recipe_id) REFERENCES recipebook."Recipes" (id), CONSTRAINT "unit_fk" FOREIGN KEY(unit_id) REFERENCES recipebook."Units" (id) );
+  INFO 15:01:55 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 15:01:55 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 15:01:55 CREATE SCHEMA IF NOT EXISTS dogschool;
+  INFO 15:01:55 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 15:01:55 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 15:01:55 CREATE TABLE IF NOT EXISTS dogschool."Course" ( id uuid PRIMARY KEY DEFAULT gen_random_uuid(), name text NOT NULL );
+  INFO 15:01:55 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 15:01:55 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 15:01:55 CREATE TABLE IF NOT EXISTS dogschool."Section" ( id uuid PRIMARY KEY, name text NOT NULL, course_id uuid NOT NULL,  CONSTRAINT "course_fk" FOREIGN KEY (course_id) REFERENCES dogschool."Course" (id) );
+  INFO 15:01:55 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 15:01:55 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 15:01:55 CREATE TABLE IF NOT EXISTS dogschool."Video" ( id uuid PRIMARY KEY DEFAULT gen_random_uuid(), name text NOT NULL, section_id uuid NOT NULL,  CONSTRAINT "section_fk" FOREIGN KEY (section_id) REFERENCES dogschool."Section" (id) );
+  INFO 15:01:55 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 15:01:55 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 15:01:55 Database created
+  INFO 15:01:55 INSERT INTO recipebook."Ingredients"(name,protein,carbohydrates,fat) VALUES (?,?,?,?);
+  INFO 15:01:55 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 15:01:55 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 15:01:55 INSERT INTO recipebook."Ingredients"(name,protein,carbohydrates,fat) VALUES (?,?,?,?);
+  INFO 15:01:55 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 15:01:55 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 15:01:55 INSERT INTO recipebook."Ingredients"(name,protein,carbohydrates,fat) VALUES (?,?,?,?);
+  INFO 15:01:55 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 15:01:55 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 15:01:55 INSERT INTO recipebook."Units"(name) VALUES (?);
+  INFO 15:01:55 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 15:01:55 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 15:01:55 INSERT INTO recipebook."Units"(name) VALUES (?);
+  INFO 15:01:55 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 15:01:55 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 15:01:55 INSERT INTO recipebook."Units"(name) VALUES (?);
+  INFO 15:01:55 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 15:01:55 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 15:01:55 INSERT INTO recipebook."Kinds"(name) VALUES (?);
+  INFO 15:01:55 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 15:01:55 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 15:01:56 INSERT INTO recipebook."Kinds"(name) VALUES (?);
+  INFO 15:01:56 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 15:01:56 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 15:01:56 INSERT INTO recipebook."Kinds"(name) VALUES (?);
+  INFO 15:01:56 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 15:01:56 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 15:05:50 DROP TABLE IF EXISTS recipebook."Recipe_Ingredients" CASCADE;
+  INFO 15:05:50 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 15:05:50 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 15:05:50 DROP TABLE IF EXISTS recipebook."Recipes" CASCADE;
+  INFO 15:05:50 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 15:05:50 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 15:05:50 DROP TABLE IF EXISTS recipebook."Units" CASCADE;
+  INFO 15:05:50 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 15:05:50 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 15:05:50 DROP TABLE IF EXISTS recipebook."Kinds" CASCADE;
+  INFO 15:05:50 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 15:05:50 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 15:05:50 DROP TABLE IF EXISTS recipebook."Ingredients" CASCADE;
+  INFO 15:05:50 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 15:05:50 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 15:05:50 Database deleted
+  INFO 15:05:50 CREATE SCHEMA IF NOT EXISTS recipebook;
+  INFO 15:05:50 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 15:05:50 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 15:05:50 CREATE TABLE IF NOT EXISTS recipebook."Ingredients" ( id serial PRIMARY KEY, name text NOT NULL, protein numeric, carbohydrates numeric, fat numeric );
+  INFO 15:05:50 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 15:05:50 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 15:05:50 CREATE TABLE IF NOT EXISTS recipebook."Kinds" ( id serial PRIMARY KEY, name text NOT NULL );
+  INFO 15:05:50 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 15:05:50 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 15:05:50 CREATE TABLE IF NOT EXISTS recipebook."Units" ( id serial PRIMARY KEY, name text NOT NULL );
+  INFO 15:05:50 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 15:05:50 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 15:05:50 CREATE TABLE IF NOT EXISTS recipebook."Recipes" ( id serial PRIMARY KEY, title text NOT NULL, difficulty integer NOT NULL, preparation integer NOT NULL, cooking integer NOT NULL, kind_id integer NOT NULL, instructions text[],  CONSTRAINT "kind_fk" FOREIGN KEY (kind_id) REFERENCES recipebook."Kinds" (id) );
+  INFO 15:05:50 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 15:05:50 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 15:05:50 CREATE TABLE IF NOT EXISTS recipebook."Recipe_Ingredients" ( id serial PRIMARY KEY, ingredient_id integer NOT NULL, amount numeric, recipe_id integer NOT NULL, unit_id integer NOT NULL,  CONSTRAINT "ingredient_fk" FOREIGN KEY (ingredient_id) REFERENCES recipebook."Ingredients" (id), CONSTRAINT "recipe_fk" FOREIGN KEY (recipe_id) REFERENCES recipebook."Recipes" (id), CONSTRAINT "unit_fk" FOREIGN KEY(unit_id) REFERENCES recipebook."Units" (id) );
+  INFO 15:05:50 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 15:05:50 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 15:05:50 CREATE SCHEMA IF NOT EXISTS dogschool;
+  INFO 15:05:50 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 15:05:50 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 15:05:50 CREATE TABLE IF NOT EXISTS dogschool."Course" ( id uuid PRIMARY KEY DEFAULT gen_random_uuid(), name text NOT NULL );
+  INFO 15:05:50 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 15:05:50 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 15:05:50 CREATE TABLE IF NOT EXISTS dogschool."Section" ( id uuid PRIMARY KEY, name text NOT NULL, course_id uuid NOT NULL,  CONSTRAINT "course_fk" FOREIGN KEY (course_id) REFERENCES dogschool."Course" (id) );
+  INFO 15:05:50 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 15:05:50 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 15:05:50 CREATE TABLE IF NOT EXISTS dogschool."Video" ( id uuid PRIMARY KEY DEFAULT gen_random_uuid(), name text NOT NULL, section_id uuid NOT NULL,  CONSTRAINT "section_fk" FOREIGN KEY (section_id) REFERENCES dogschool."Section" (id) );
+  INFO 15:05:50 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 15:05:51 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 15:05:51 Database created
+  INFO 15:05:51 INSERT INTO recipebook."Ingredients"(name,protein,carbohydrates,fat) VALUES (?,?,?,?);
+  INFO 15:05:51 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 15:05:51 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 15:05:51 INSERT INTO recipebook."Ingredients"(name,protein,carbohydrates,fat) VALUES ('Hühnerbrust',12.0,4.0,49.0)
+  INFO 15:05:51 INSERT INTO recipebook."Ingredients"(name,protein,carbohydrates,fat) VALUES (?,?,?,?);
+  INFO 15:05:51 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 15:05:51 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 15:05:51 INSERT INTO recipebook."Ingredients"(name,protein,carbohydrates,fat) VALUES ('Pudding',45.0,2.0,45.0)
+  INFO 15:05:51 INSERT INTO recipebook."Ingredients"(name,protein,carbohydrates,fat) VALUES (?,?,?,?);
+  INFO 15:05:51 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 15:05:51 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 15:05:51 INSERT INTO recipebook."Ingredients"(name,protein,carbohydrates,fat) VALUES ('Kartoffelsalat',46.0,79.0,13.0)
+  INFO 15:05:51 INSERT INTO recipebook."Units"(name) VALUES (?);
+  INFO 15:05:51 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 15:05:51 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 15:05:51 INSERT INTO recipebook."Units"(name) VALUES ('g')
+  INFO 15:05:51 INSERT INTO recipebook."Units"(name) VALUES (?);
+  INFO 15:05:51 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 15:05:51 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 15:05:51 INSERT INTO recipebook."Units"(name) VALUES ('ml')
+  INFO 15:05:51 INSERT INTO recipebook."Units"(name) VALUES (?);
+  INFO 15:05:51 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 15:05:51 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 15:05:51 INSERT INTO recipebook."Units"(name) VALUES ('Etwas')
+  INFO 15:05:51 INSERT INTO recipebook."Kinds"(name) VALUES (?);
+  INFO 15:05:51 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 15:05:51 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 15:05:51 INSERT INTO recipebook."Kinds"(name) VALUES ('Herzhaft')
+  INFO 15:05:51 INSERT INTO recipebook."Kinds"(name) VALUES (?);
+  INFO 15:05:51 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 15:05:51 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 15:05:51 INSERT INTO recipebook."Kinds"(name) VALUES ('Süß')
+  INFO 15:05:51 INSERT INTO recipebook."Kinds"(name) VALUES (?);
+  INFO 15:05:51 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 15:05:51 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 15:05:51 INSERT INTO recipebook."Kinds"(name) VALUES ('Beilage')
