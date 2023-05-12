@@ -44,7 +44,7 @@ public class LoggerService {
 			handler = new FileHandler(path.resolve(date + ".log").toString(), true);
 			handler.setFormatter(getFormatter());
 			logger.addHandler(handler);
-			logger.setLevel(Level.ALL);
+			logger.setLevel(Level.SEVERE);
 		} catch (final IOException e) {
 			LoggerService.severe(e.getMessage());
 		}
