@@ -16,13 +16,13 @@ public class JDBCDriverConnection {
 
 	private static final String DB_FILEPATH = "//localhost:5432/postgres?user=root&password=root";
 
-	public static <T> void executeAdd(String destScheme, String destTable, UpdateObject... updateObjects)
+	public static <T> void executeAdd(String destScheme, String destTable, UpdateObject<?>... updateObjects)
 			throws SQLException {
 		String prep = "";
 		String query = String.format("INSERT INTO %s.\"%s\"(", destScheme, destTable);
 		for (int i = 0; i < updateObjects.length; i++) {
 			query += updateObjects[i].getColumn();
-			prep += updateObjects[i].isTextArray() ? "?::text[]" : "?";
+			prep += updateObjects[i].isType(String[].class) ? "?::text[]" : "?";
 			if (i + 1 != updateObjects.length) {
 				query += ",";
 				prep += ",";
@@ -33,16 +33,17 @@ public class JDBCDriverConnection {
 		final Connection con = getConnection();
 		final PreparedStatement statement = con.prepareStatement(query);
 		for (int i = 0; i < updateObjects.length; i++)
-			if (updateObjects[i].isText())
-				statement.setString(i + 1, updateObjects[i].getTextValue());
-			else if (updateObjects[i].isInt())
-				statement.setInt(i + 1, updateObjects[i].getIntValue());
-			else if (updateObjects[i].isNumeric())
-				statement.setDouble(i + 1, updateObjects[i].getDoubleValue());
+			if (updateObjects[i].isType(String.class))
+				statement.setString(i + 1, (String) updateObjects[i].getValue());
+			else if (updateObjects[i].isType(Integer.class))
+				statement.setInt(i + 1, (int) updateObjects[i].getValue());
+			else if (updateObjects[i].isType(Double.class))
+				statement.setDouble(i + 1, (double) updateObjects[i].getValue());
 			else
-				statement.setArray(i + 1, con.createArrayOf("text", updateObjects[i].getTextArray()));
+				statement.setArray(i + 1, con.createArrayOf("text", (String[]) updateObjects[i].getValue()));
 		LoggerService.info(statement.toString());
 		statement.executeUpdate();
+		con.close();
 	}
 
 	public static <T> List<T> executeQuery(String query, Function<ResultSet, T> rowMapper) throws SQLException {
@@ -56,17 +57,26 @@ public class JDBCDriverConnection {
 		return results;
 	}
 
-	public static void executeUpdate(String destScheme, String destTable, UpdateObject updateObject)
+	public static void executeUpdate(String destScheme, String destTable, UpdateObject<?> updateObject)
 			throws SQLException {
-		String query = String.format("UPDATE %s .\"%s\" SET %s = ", destScheme, destTable, updateObject.getColumn());
-		query += updateObject.isText() ? "\"" + updateObject.getTextValue() + "\"" : updateObject.getIntValue();
-		query += String.format(" WHERE id = %d;", updateObject.getID());
-		LoggerService.info(query);
-		final PreparedStatement statement = getConnection().prepareStatement(query);
+		final String query = String.format("UPDATE %s.\"%s\" SET %s = ? WHERE id = %d", destScheme, destTable,
+				updateObject.getColumn(), updateObject.getID());
+		final Connection con = getConnection();
+		final PreparedStatement statement = con.prepareStatement(query);
+		if (updateObject.isType(String.class))
+			statement.setString(1, (String) updateObject.getValue());
+		else if (updateObject.isType(Integer.class))
+			statement.setInt(1, (int) updateObject.getValue());
+		else if (updateObject.isType(Double.class))
+			statement.setDouble(1, (double) updateObject.getValue());
+		else
+			statement.setArray(1, con.createArrayOf("text", (String[]) updateObject.getValue()));
+		LoggerService.info(statement.toString());
 		statement.executeUpdate();
+		con.close();
 	}
 
-	public static Connection getConnection() throws SQLException {
+	static Connection getConnection() throws SQLException {
 		LoggerService.info("Verbindung zur Datenbank wird versucht aufzubauen.");
 		Connection connection = null;
 		try {

@@ -18,54 +18,52 @@ import de.amit.controller.LoggerService;
 import de.amit.controller.dogschool.serviceTemplates.DogschoolController;
 import de.amit.model.Response;
 import de.amit.model.UpdateObject;
-import de.amit.model.UpdateObject.UpdateObjectBuilder;
 import de.amit.model.dogschool.Video;
 
 @RestController
 @RequestMapping("/dogschool/{sectionId}/video")
 public class VideoController extends DogschoolController<Video> {
 
-    public VideoController() {
-        super("Video");
-    }
+	public VideoController() {
+		super("Video");
+	}
 
-    @GetMapping("/add")
-    public Response add(@PathVariable String sectionId) {
-        return super.add(new UpdateObject[] {
-                new UpdateObjectBuilder().buildWithTextValue(0, "name", ""),
-                new UpdateObjectBuilder().buildWithTextValue(0, "section_id", sectionId)
-        });
-    }
+	@GetMapping("/add")
+	public Response add(@PathVariable String sectionId) {
+		return super.add(
+				new UpdateObject[] { new UpdateObject<>("name", ""), new UpdateObject<>("section_id", sectionId) });
+	}
 
-    @Override
-    @PostMapping("/change")
-    public Response change(@RequestBody UpdateObject updateObject) {
-        return super.change(updateObject);
-    }
+	@Override
+	@PostMapping("/change")
+	public Response change(@RequestBody UpdateObject<?> updateObject) {
+		return super.change(updateObject);
+	}
 
-    @GetMapping("/{uuid}")
-    public Video get(@PathVariable String sectionId, @PathVariable String uuid) throws SQLException {
-        return super.get("WHERE section_id = \"" + sectionId + "\" AND id = \"" + uuid + "\"");
-    }
+	@GetMapping("/{uuid}")
+	public Video get(@PathVariable String sectionId, @PathVariable String uuid) throws SQLException {
+		return super.get("WHERE section_id = \"" + sectionId + "\" AND id = \"" + uuid + "\"");
+	}
 
-    @GetMapping("/all")
-    public List<Video> getAll(@PathVariable String courseId) throws SQLException {
-        return super.getAll("WHERE course_id = \"" + courseId + "\"");
-    }
+	@Override
+	@GetMapping("/all")
+	public List<Video> getAll(@PathVariable String courseId) throws SQLException {
+		return super.getAll("WHERE course_id = \"" + courseId + "\"");
+	}
 
-    @Override
-    protected Function<ResultSet, Video> setResultSetFunction() {
-        return resultSet -> {
-            Video video = new Video();
-            try {
-                video.setUuid(UUID.fromString(resultSet.getString("id")));
-                video.setName(resultSet.getString("name"));
-                video.setSectionID(UUID.fromString(resultSet.getString("section_id")));
-            } catch (SQLException e) {
-                LoggerService.severe(Arrays.toString(e.getStackTrace()));
-            }
-            return video;
-        };
-    }
+	@Override
+	protected Function<ResultSet, Video> setResultSetFunction() {
+		return resultSet -> {
+			final Video video = new Video();
+			try {
+				video.setUuid(UUID.fromString(resultSet.getString("id")));
+				video.setName(resultSet.getString("name"));
+				video.setSectionID(UUID.fromString(resultSet.getString("section_id")));
+			} catch (final SQLException e) {
+				LoggerService.severe(Arrays.toString(e.getStackTrace()));
+			}
+			return video;
+		};
+	}
 
 }

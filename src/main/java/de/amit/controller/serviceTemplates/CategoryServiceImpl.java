@@ -24,7 +24,7 @@ public abstract class CategoryServiceImpl<T> implements CategoryService<T> {
 	}
 
 	@Override
-	public Response add(UpdateObject... updateObjects) {
+	public Response add(UpdateObject<?>... updateObjects) {
 		try {
 			JDBCDriverConnection.executeAdd(scheme, table, updateObjects);
 			return new Response("Hinzugefügt", true);
@@ -36,7 +36,7 @@ public abstract class CategoryServiceImpl<T> implements CategoryService<T> {
 	}
 
 	@Override
-	public Response change(UpdateObject updateObject) {
+	public Response change(UpdateObject<?> updateObject) {
 		try {
 			JDBCDriverConnection.executeUpdate(scheme, table, updateObject);
 			return new Response("Update erfolgreich", true);

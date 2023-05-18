@@ -19,27 +19,30 @@ import de.amit.model.recipebook.AttributeObject;
 @RequestMapping("/kind")
 public class KindController extends AttributeController {
 
-    public KindController() {
-        super("Kinds");
-    }
+	public KindController() {
+		super("Kinds");
+	}
 
-    @GetMapping("/add")
-    public Response add() {
-        return super.add();
-    }
+	@Override
+	@GetMapping("/add")
+	public Response add() {
+		return super.add();
+	}
 
-    @PostMapping("/change")
-    public Response change(@RequestBody UpdateObject updateObject) {
-        return super.change(updateObject);
-    }
+	@PostMapping("/change")
+	public Response change(@RequestBody UpdateObject<?> updateObject) {
+		return super.change(updateObject);
+	}
 
-    @GetMapping("/{id}")
-    public AttributeObject get(@PathVariable int id) throws SQLException {
-        return super.get(id);
-    }
+	@Override
+	@GetMapping("/{id}")
+	public AttributeObject get(@PathVariable int id) throws SQLException {
+		return super.get(id);
+	}
 
-    @GetMapping("/all")
-    public List<AttributeObject> getAll() throws SQLException {
-        return super.getAll();
-    }
+	@Override
+	@GetMapping("/all")
+	public List<AttributeObject> getAll() throws SQLException {
+		return super.getAll();
+	}
 }

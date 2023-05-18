@@ -18,50 +18,50 @@ import de.amit.controller.LoggerService;
 import de.amit.controller.dogschool.serviceTemplates.DogschoolController;
 import de.amit.model.Response;
 import de.amit.model.UpdateObject;
-import de.amit.model.UpdateObject.UpdateObjectBuilder;
 import de.amit.model.dogschool.Course;
 
 @RestController
 @RequestMapping("/dogschool/course")
 public class CourseController extends DogschoolController<Course> {
 
-    public CourseController() {
-        super("Course");
-    }
+	public CourseController() {
+		super("Course");
+	}
 
-    @GetMapping("/add")
-    public Response add() {
-        return super.add(new UpdateObjectBuilder().buildWithTextValue(0, "name", ""));
-    }
+	@GetMapping("/add")
+	public Response add() {
+		return super.add(new UpdateObject<>("name", ""));
+	}
 
-    @Override
-    @PostMapping("/change")
-    public Response change(@RequestBody UpdateObject updateObject) {
-        return super.change(updateObject);
-    }
+	@Override
+	@PostMapping("/change")
+	public Response change(@RequestBody UpdateObject<?> updateObject) {
+		return super.change(updateObject);
+	}
 
-    @GetMapping("/{uuid}")
-    public Course get(@PathVariable String uuid) throws SQLException {
-        return super.get("WHERE id = " + uuid);
-    }
+	@Override
+	@GetMapping("/{uuid}")
+	public Course get(@PathVariable String uuid) throws SQLException {
+		return super.get("WHERE id = " + uuid);
+	}
 
-    @GetMapping("/all")
-    public List<Course> getAll() throws SQLException {
-        return super.getAll("");
-    }
+	@GetMapping("/all")
+	public List<Course> getAll() throws SQLException {
+		return super.getAll("");
+	}
 
-    @Override
-    protected Function<ResultSet, Course> setResultSetFunction() {
-        return resultSet -> {
-            Course course = new Course();
-            try {
-                course.setUuid(UUID.fromString(resultSet.getString("id")));
-                course.setName(resultSet.getString("name"));
-            } catch (SQLException e) {
-                LoggerService.severe(Arrays.toString(e.getStackTrace()));
-            }
-            return course;
-        };
-    }
+	@Override
+	protected Function<ResultSet, Course> setResultSetFunction() {
+		return resultSet -> {
+			final Course course = new Course();
+			try {
+				course.setUuid(UUID.fromString(resultSet.getString("id")));
+				course.setName(resultSet.getString("name"));
+			} catch (final SQLException e) {
+				LoggerService.severe(Arrays.toString(e.getStackTrace()));
+			}
+			return course;
+		};
+	}
 
 }

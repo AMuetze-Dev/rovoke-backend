@@ -17,7 +17,6 @@ import de.amit.controller.LoggerService;
 import de.amit.controller.recipebook.serviceTemplates.RecipebookController;
 import de.amit.model.Response;
 import de.amit.model.UpdateObject;
-import de.amit.model.UpdateObject.UpdateObjectBuilder;
 import de.amit.model.recipebook.Ingredient;
 
 @RestController
@@ -30,15 +29,17 @@ public class IngredientController extends RecipebookController<Ingredient> {
 
 	@GetMapping("/add")
 	public Response add() {
-		return super.add(new UpdateObject[] { new UpdateObjectBuilder().buildWithTextValue(-1, "name", ""),
-				new UpdateObjectBuilder().buildWithDoubleValue(-1, "protein", 0),
-				new UpdateObjectBuilder().buildWithDoubleValue(-1, "carbohydrates", 0),
-				new UpdateObjectBuilder().buildWithDoubleValue(-1, "fat", 0), });
+		final UpdateObject<?>[] uo = new UpdateObject[4];
+		uo[0] = new UpdateObject<>("name", "");
+		uo[1] = new UpdateObject<>("protein", 0);
+		uo[2] = new UpdateObject<>("carbohydrates", 0);
+		uo[3] = new UpdateObject<>("fat", 0);
+		return super.add(uo);
 	}
 
 	@Override
 	@PostMapping("/change")
-	public Response change(@RequestBody UpdateObject updateObject) {
+	public Response change(@RequestBody UpdateObject<?> updateObject) {
 		return super.change(updateObject);
 	}
 

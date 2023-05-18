@@ -8,11 +8,11 @@ import de.amit.model.UpdateObject;
 
 public interface CategoryService<T extends Object> {
 
-    public Response add(UpdateObject... updateObjects);
+	public Response add(UpdateObject<?>... updateObjects);
 
-    public Response change(UpdateObject updateObject);
+	public Response change(UpdateObject<?> updateObject);
 
-    public T get(String whereClause) throws SQLException;
+	public T get(String whereClause) throws SQLException;
 
-    public List<T> getAll(String whereClause) throws SQLException;
+	public List<T> getAll(String whereClause) throws SQLException;
 }

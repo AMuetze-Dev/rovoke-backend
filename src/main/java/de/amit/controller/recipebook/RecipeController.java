@@ -13,8 +13,8 @@ import de.amit.controller.LoggerService;
 import de.amit.controller.recipebook.serviceTemplates.RecipebookController;
 import de.amit.model.Response;
 import de.amit.model.UpdateObject;
-import de.amit.model.UpdateObject.UpdateObjectBuilder;
 import de.amit.model.recipebook.Recipe;
+import de.amit.model.recipebook.RecipeIngredient;
 
 @RestController
 @RequestMapping("/recipe")
@@ -25,14 +25,15 @@ public class RecipeController extends RecipebookController<Recipe> {
 	}
 
 	@GetMapping("/add")
-	public Response add(Recipe recipe) {
-		return super.add(
-				new UpdateObject[] { new UpdateObjectBuilder().buildWithTextValue(-1, "title", recipe.getTitle()),
-						new UpdateObjectBuilder().buildWithIntValue(-1, "difficulty", recipe.getDifficulty()),
-						new UpdateObjectBuilder().buildWithIntValue(-1, "preparation", recipe.getPreparation()),
-						new UpdateObjectBuilder().buildWithIntValue(-1, "cooking", recipe.getCooking()),
-						new UpdateObjectBuilder().buildWithIntValue(-1, "kind_id", recipe.getKind()),
-						new UpdateObjectBuilder().buildWithTextArray(-1, "instructions", new String[] { "" }) });
+	public Response add(Recipe recipe, RecipeIngredient[] recipeIngredients) {
+		final UpdateObject<?>[] uo = new UpdateObject[6];
+		uo[0] = new UpdateObject<>("title", recipe.getTitle());
+		uo[1] = new UpdateObject<>("difficulty", recipe.getDifficulty());
+		uo[2] = new UpdateObject<>("preparation", recipe.getPreparation());
+		uo[3] = new UpdateObject<>("cooking", recipe.getCooking());
+		uo[4] = new UpdateObject<>("kind_id", recipe.getKind());
+		uo[5] = new UpdateObject<>("instructions", new String[] { "" });
+		return super.add(uo);
 	}
 
 	@Override

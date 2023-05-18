@@ -33,6 +33,7 @@ CREATE TABLE IF NOT EXISTS recipebook."Recipes" (
 CREATE TABLE IF NOT EXISTS recipebook."Recipe_Ingredients" (
 	id serial PRIMARY KEY,
 	ingredient_id integer NOT NULL,
+	category text,
 	amount numeric,
 	recipe_id integer NOT NULL,
 	unit_id integer NOT NULL,

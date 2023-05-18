@@ -1,47 +1,19 @@
 package de.amit.model;
 
-public class UpdateObject {
-
-	enum ObjectType {
-		TEXT, INT, NUMERIC, TEXT_ARRAY;
-	}
-
-	public static class UpdateObjectBuilder {
-
-		public UpdateObject buildWithIntValue(int id, String column, int intValue) {
-			return new UpdateObject(id, column, "", intValue, -1, null, ObjectType.INT);
-		}
-
-		public UpdateObject buildWithDoubleValue(int id, String column, double doubleValue) {
-			return new UpdateObject(id, column, "", 0, doubleValue, null, ObjectType.NUMERIC);
-		}
-
-		public UpdateObject buildWithTextValue(int id, String column, String textValue) {
-			return new UpdateObject(id, column, textValue, -1, -1, null, ObjectType.TEXT);
-		}
-
-		public UpdateObject buildWithTextArray(int id, String column, String[] stringArray) {
-			return new UpdateObject(id, column, "", -1, -1, stringArray, ObjectType.TEXT_ARRAY);
-		}
-	}
+public class UpdateObject<T> {
 
 	private final int id;
 	private final String column;
-	private final String textValue;
-	private final String[] textArray;
-	private final int intValue;
-	private final double doubleValue;
-	private final ObjectType objectType;
+	private final T value;
 
-	private UpdateObject(int id, String column, String textValue, int intValue, double doubleValue,
-			String[] textArray, ObjectType objectType) {
+	public UpdateObject(int id, String column, T value) {
 		this.id = id;
 		this.column = column;
-		this.intValue = intValue;
-		this.doubleValue = doubleValue;
-		this.textValue = textValue;
-		this.textArray = textArray;
-		this.objectType = objectType;
+		this.value = value;
+	}
+
+	public UpdateObject(String column, T value) {
+		this(-1, column, value);
 	}
 
 	public String getColumn() {
@@ -52,39 +24,17 @@ public class UpdateObject {
 		return id;
 	}
 
-	public int getIntValue() {
-		return intValue;
+	public T getValue() {
+		return value;
 	}
 
-	public double getDoubleValue() {
-		return doubleValue;
+	public <E extends T> E getValue(Class<E> type) {
+		if (type.isInstance(value))
+			return type.cast(value);
+		return null;
 	}
 
-	public String getTextValue() {
-		return textValue;
-	}
-
-	public String[] getTextArray() {
-		return textArray;
-	}
-
-	public ObjectType getObjectType() {
-		return objectType;
-	}
-
-	public boolean isText() {
-		return objectType == ObjectType.TEXT;
-	}
-
-	public boolean isInt() {
-		return objectType == ObjectType.INT;
-	}
-
-	public boolean isNumeric() {
-		return objectType == ObjectType.NUMERIC;
-	}
-
-	public boolean isTextArray() {
-		return objectType == ObjectType.TEXT_ARRAY;
+	public boolean isType(Class<?> type) {
+		return type.isInstance(value);
 	}
 }

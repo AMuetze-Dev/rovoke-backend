@@ -4,62 +4,62 @@ import java.io.Serializable;
 
 public class Ingredient implements Serializable {
 
-    private static final long serialVersionUID = 1L;
-    private int id;
-    private String name;
-    private double protein;
-    private double carbohydrates;
-    private double fat;
+	private static final long serialVersionUID = 1L;
+	private int id;
+	private String name;
+	private double protein;
+	private double carbohydrates;
+	private double fat;
 
-    public Ingredient() {
-    }
+	public Ingredient() {
+	}
 
-    public Ingredient(int id, String name, double protein, double carbohydrates, double fat) {
-        this.id = id;
-        this.name = name;
-        this.protein = protein;
-        this.carbohydrates = carbohydrates;
-        this.fat = fat;
-    }
+	public Ingredient(int id, String name, double protein, double carbohydrates, double fat) {
+		this.id = id;
+		this.name = name;
+		this.protein = protein;
+		this.carbohydrates = carbohydrates;
+		this.fat = fat;
+	}
 
-    public int getId() {
-        return id;
-    }
+	public double getCarbohydrates() {
+		return carbohydrates;
+	}
 
-    public void setId(int id) {
-        this.id = id;
-    }
+	public double getFat() {
+		return fat;
+	}
 
-    public String getName() {
-        return name;
-    }
+	public int getId() {
+		return id;
+	}
 
-    public void setName(String name) {
-        this.name = name;
-    }
+	public String getName() {
+		return name;
+	}
 
-    public double getProtein() {
-        return protein;
-    }
+	public double getProtein() {
+		return protein;
+	}
 
-    public void setProtein(double protein) {
-        this.protein = protein;
-    }
+	public void setCarbohydrates(double carbohydrates) {
+		this.carbohydrates = carbohydrates;
+	}
 
-    public double getCarbohydrates() {
-        return carbohydrates;
-    }
+	public void setFat(double fat) {
+		this.fat = fat;
+	}
 
-    public void setCarbohydrates(double carbohydrates) {
-        this.carbohydrates = carbohydrates;
-    }
+	public void setId(int id) {
+		this.id = id;
+	}
 
-    public double getFat() {
-        return fat;
-    }
+	public void setName(String name) {
+		this.name = name;
+	}
 
-    public void setFat(double fat) {
-        this.fat = fat;
-    }
+	public void setProtein(double protein) {
+		this.protein = protein;
+	}
 
 }
