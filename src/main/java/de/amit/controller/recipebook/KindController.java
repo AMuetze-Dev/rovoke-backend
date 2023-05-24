@@ -29,6 +29,7 @@ public class KindController extends AttributeController {
 		return super.add();
 	}
 
+	@Override
 	@PostMapping("/change")
 	public Response change(@RequestBody UpdateObject<?> updateObject) {
 		return super.change(updateObject);

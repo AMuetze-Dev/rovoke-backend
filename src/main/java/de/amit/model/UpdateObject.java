@@ -2,9 +2,13 @@ package de.amit.model;
 
 public class UpdateObject<T> {
 
-	private final int id;
-	private final String column;
-	private final T value;
+	private int id;
+	private String column;
+	private T value;
+
+	public UpdateObject() {
+
+	}
 
 	public UpdateObject(int id, String column, T value) {
 		this.id = id;

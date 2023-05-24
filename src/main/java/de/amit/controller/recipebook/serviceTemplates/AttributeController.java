@@ -21,11 +21,6 @@ public abstract class AttributeController extends RecipebookController<Attribute
 		return super.add(new UpdateObject<>("name", ""));
 	}
 
-	@Override
-	public Response change(UpdateObject<?> updateObject) {
-		throw new UnsupportedOperationException("Unimplemented method 'change'");
-	}
-
 	public AttributeObject get(int id) throws SQLException {
 		return super.get("WHERE id = " + id);
 	}
