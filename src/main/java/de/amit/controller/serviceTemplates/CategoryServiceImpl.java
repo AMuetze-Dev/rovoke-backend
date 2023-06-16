@@ -41,6 +41,7 @@ public abstract class CategoryServiceImpl<T> implements CategoryService<T> {
 			JDBCDriverConnection.executeUpdate(scheme, table, updateObject);
 			return new Response("Update erfolgreich", true);
 		} catch (final SQLException e) {
+			e.printStackTrace();
 			LoggerService.severe(Arrays.toString(e.getStackTrace()));
 			return new Response("Update fehlgeschlagen", false);
 		}
@@ -59,6 +60,17 @@ public abstract class CategoryServiceImpl<T> implements CategoryService<T> {
 	@Override
 	public List<T> getAll(String whereClause) throws SQLException {
 		return executeQuery("SELECT * FROM " + scheme + ".\"" + table + "\" " + whereClause + " ORDER BY id ASC");
+	}
+
+	@Override
+	public Response remove(int id) {
+		try {
+			JDBCDriverConnection.executeDelete(scheme, table, id);
+			return new Response("Entfernen erfolgreich", true);
+		} catch (final SQLException e) {
+			LoggerService.severe(Arrays.toString(e.getStackTrace()));
+			return new Response("Enfernen fehlgeschlagen", false);
+		}
 	}
 
 	protected abstract Function<ResultSet, T> setResultSetFunction();

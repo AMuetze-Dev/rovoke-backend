@@ -1,0 +1,1377 @@
+  INFO 12:49:29 DROP TABLE IF EXISTS recipebook."Recipe_Ingredients" CASCADE;
+  INFO 12:49:29 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 12:49:30 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 12:49:30 DROP TABLE IF EXISTS recipebook."Recipes" CASCADE;
+  INFO 12:49:30 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 12:49:30 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 12:49:30 DROP TABLE IF EXISTS recipebook."Units" CASCADE;
+  INFO 12:49:30 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 12:49:30 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 12:49:30 DROP TABLE IF EXISTS recipebook."Kinds" CASCADE;
+  INFO 12:49:30 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 12:49:30 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 12:49:30 DROP TABLE IF EXISTS recipebook."Ingredients" CASCADE;
+  INFO 12:49:30 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 12:49:30 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 12:49:30 Database deleted
+  INFO 12:49:30 CREATE SCHEMA IF NOT EXISTS recipebook;
+  INFO 12:49:30 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 12:49:30 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 12:49:30 CREATE TABLE IF NOT EXISTS recipebook."Ingredients" ( id serial PRIMARY KEY, name text NOT NULL, protein numeric, carbohydrates numeric, fat numeric );
+  INFO 12:49:30 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 12:49:30 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 12:49:30 CREATE TABLE IF NOT EXISTS recipebook."Kinds" ( id serial PRIMARY KEY, name text NOT NULL );
+  INFO 12:49:30 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 12:49:30 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 12:49:30 CREATE TABLE IF NOT EXISTS recipebook."Units" ( id serial PRIMARY KEY, name text NOT NULL );
+  INFO 12:49:30 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 12:49:30 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 12:49:30 CREATE TABLE IF NOT EXISTS recipebook."Recipes" ( id serial PRIMARY KEY, title text NOT NULL, difficulty integer NOT NULL, preparation integer NOT NULL, cooking integer NOT NULL, kind_id integer NOT NULL, instructions text[],  CONSTRAINT "kind_fk" FOREIGN KEY (kind_id) REFERENCES recipebook."Kinds" (id) );
+  INFO 12:49:30 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 12:49:30 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 12:49:30 CREATE TABLE IF NOT EXISTS recipebook."Recipe_Ingredients" ( id serial PRIMARY KEY, ingredient_id integer NOT NULL, category text, amount numeric, recipe_id integer NOT NULL, unit_id integer NOT NULL,  CONSTRAINT "ingredient_fk" FOREIGN KEY (ingredient_id) REFERENCES recipebook."Ingredients" (id), CONSTRAINT "recipe_fk" FOREIGN KEY (recipe_id) REFERENCES recipebook."Recipes" (id), CONSTRAINT "unit_fk" FOREIGN KEY(unit_id) REFERENCES recipebook."Units" (id) );
+  INFO 12:49:30 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 12:49:30 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 12:49:30 CREATE SCHEMA IF NOT EXISTS dogschool;
+  INFO 12:49:30 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 12:49:30 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 12:49:30 CREATE TABLE IF NOT EXISTS dogschool."Course" ( id uuid PRIMARY KEY DEFAULT gen_random_uuid(), name text NOT NULL );
+  INFO 12:49:30 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 12:49:30 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 12:49:30 CREATE TABLE IF NOT EXISTS dogschool."Section" ( id uuid PRIMARY KEY, name text NOT NULL, course_id uuid NOT NULL,  CONSTRAINT "course_fk" FOREIGN KEY (course_id) REFERENCES dogschool."Course" (id) );
+  INFO 12:49:30 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 12:49:30 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 12:49:30 CREATE TABLE IF NOT EXISTS dogschool."Video" ( id uuid PRIMARY KEY DEFAULT gen_random_uuid(), name text NOT NULL, section_id uuid NOT NULL,  CONSTRAINT "section_fk" FOREIGN KEY (section_id) REFERENCES dogschool."Section" (id) );
+  INFO 12:49:30 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 12:49:30 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 12:49:30 Database created
+  INFO 12:49:30 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 12:49:30 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 12:49:30 INSERT INTO recipebook."Ingredients"(name) VALUES ('Haferflocken')
+  INFO 12:49:31 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 12:49:31 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 12:49:31 INSERT INTO recipebook."Ingredients"(name) VALUES ('Vanilleproteinpulver')
+  INFO 12:49:31 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 12:49:31 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 12:49:31 INSERT INTO recipebook."Ingredients"(name) VALUES ('Äpfel')
+  INFO 12:49:31 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 12:49:31 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 12:49:31 INSERT INTO recipebook."Ingredients"(name) VALUES ('Brauner Zucker')
+  INFO 12:49:31 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 12:49:31 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 12:49:31 INSERT INTO recipebook."Ingredients"(name) VALUES ('Zimt')
+  INFO 12:49:31 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 12:49:31 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 12:49:31 INSERT INTO recipebook."Ingredients"(name) VALUES ('Butter (Vegan)')
+  INFO 12:49:31 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 12:49:31 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 12:49:31 INSERT INTO recipebook."Ingredients"(name) VALUES ('Apfelmus')
+  INFO 12:49:31 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 12:49:31 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 12:49:31 INSERT INTO recipebook."Ingredients"(name) VALUES ('Hafermilch')
+  INFO 12:49:31 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 12:49:31 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 12:49:31 INSERT INTO recipebook."Units"(name) VALUES ('g')
+  INFO 12:49:31 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 12:49:31 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 12:49:31 INSERT INTO recipebook."Units"(name) VALUES ('ml')
+  INFO 12:49:31 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 12:49:31 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 12:49:31 INSERT INTO recipebook."Units"(name) VALUES ('Etwas')
+  INFO 12:49:31 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 12:49:31 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 12:49:31 INSERT INTO recipebook."Kinds"(name) VALUES ('Vorspeise')
+  INFO 12:49:31 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 12:49:31 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 12:49:31 INSERT INTO recipebook."Kinds"(name) VALUES ('Hauptspeise')
+  INFO 12:49:31 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 12:49:31 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 12:49:31 INSERT INTO recipebook."Kinds"(name) VALUES ('Dessert')
+  INFO 12:49:31 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 12:49:31 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 12:49:31 INSERT INTO recipebook."Kinds"(name) VALUES ('Süßspeise')
+  INFO 12:49:31 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 12:49:31 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 12:49:31 INSERT INTO recipebook."Recipes"(title,difficulty,preparation,cooking,kind_id,instructions) VALUES ('Apfelkuchen (Vegan)',2,25,40,4,?)
+  INFO 12:49:31 SELECT * FROM recipebook."Recipes"  ORDER BY id ASC
+  INFO 12:49:31 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 12:49:31 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 12:49:31 SELECT * FROM recipebook."Recipes"  ORDER BY id ASC
+  INFO 12:49:31 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 12:49:31 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 12:49:31 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 12:49:31 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 12:49:31 INSERT INTO recipebook."Recipe_Ingredients"(ingredient_id,category,amount,recipe_id,unit_id) VALUES (1,'',240.0,1,1)
+  INFO 12:49:31 SELECT * FROM recipebook."Recipes"  ORDER BY id ASC
+  INFO 12:49:31 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 12:49:31 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 12:49:31 SELECT * FROM recipebook."Recipes"  ORDER BY id ASC
+  INFO 12:49:31 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 12:49:31 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 12:49:31 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 12:49:31 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 12:49:31 INSERT INTO recipebook."Recipe_Ingredients"(ingredient_id,category,amount,recipe_id,unit_id) VALUES (2,'',60.0,1,1)
+  INFO 12:49:31 SELECT * FROM recipebook."Recipes"  ORDER BY id ASC
+  INFO 12:49:31 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 12:49:31 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 12:49:31 SELECT * FROM recipebook."Recipes"  ORDER BY id ASC
+  INFO 12:49:31 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 12:49:31 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 12:49:31 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 12:49:31 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 12:49:31 INSERT INTO recipebook."Recipe_Ingredients"(ingredient_id,category,amount,recipe_id,unit_id) VALUES (3,'',600.0,1,1)
+  INFO 12:49:31 SELECT * FROM recipebook."Recipes"  ORDER BY id ASC
+  INFO 12:49:31 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 12:49:31 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 12:49:31 SELECT * FROM recipebook."Recipes"  ORDER BY id ASC
+  INFO 12:49:31 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 12:49:31 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 12:49:31 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 12:49:31 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 12:49:31 INSERT INTO recipebook."Recipe_Ingredients"(ingredient_id,category,amount,recipe_id,unit_id) VALUES (4,'',48.0,1,1)
+  INFO 12:49:31 SELECT * FROM recipebook."Recipes"  ORDER BY id ASC
+  INFO 12:49:31 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 12:49:32 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 12:49:32 SELECT * FROM recipebook."Recipes"  ORDER BY id ASC
+  INFO 12:49:32 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 12:49:32 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 12:49:32 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 12:49:32 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 12:49:32 INSERT INTO recipebook."Recipe_Ingredients"(ingredient_id,category,amount,recipe_id,unit_id) VALUES (5,'',8.0,1,1)
+  INFO 12:49:32 SELECT * FROM recipebook."Recipes"  ORDER BY id ASC
+  INFO 12:49:32 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 12:49:32 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 12:49:32 SELECT * FROM recipebook."Recipes"  ORDER BY id ASC
+  INFO 12:49:32 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 12:49:32 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 12:49:32 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 12:49:32 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 12:49:32 INSERT INTO recipebook."Recipe_Ingredients"(ingredient_id,category,amount,recipe_id,unit_id) VALUES (6,'',28.0,1,1)
+  INFO 12:49:32 SELECT * FROM recipebook."Recipes"  ORDER BY id ASC
+  INFO 12:49:32 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 12:49:32 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 12:49:32 SELECT * FROM recipebook."Recipes"  ORDER BY id ASC
+  INFO 12:49:32 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 12:49:32 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 12:49:32 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 12:49:32 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 12:49:32 INSERT INTO recipebook."Recipe_Ingredients"(ingredient_id,category,amount,recipe_id,unit_id) VALUES (7,'',96.0,1,1)
+  INFO 12:49:32 SELECT * FROM recipebook."Recipes"  ORDER BY id ASC
+  INFO 12:49:32 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 12:49:32 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 12:49:32 SELECT * FROM recipebook."Recipes"  ORDER BY id ASC
+  INFO 12:49:32 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 12:49:32 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 12:49:32 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 12:49:32 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 12:49:32 INSERT INTO recipebook."Recipe_Ingredients"(ingredient_id,category,amount,recipe_id,unit_id) VALUES (8,'',480.0,1,1)
+  INFO 12:49:46 SELECT * FROM recipebook."Recipes"  ORDER BY id ASC
+  INFO 12:49:46 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 12:49:46 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 12:49:46 SELECT * FROM recipebook."Recipes"  ORDER BY id ASC
+  INFO 12:49:46 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 12:49:46 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 12:51:53 SELECT * FROM recipebook."Recipes"  ORDER BY id ASC
+  INFO 12:51:53 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 12:51:53 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 12:51:53 SELECT * FROM recipebook."Recipes"  ORDER BY id ASC
+  INFO 12:51:53 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 12:51:53 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 12:52:40 SELECT * FROM recipebook."Recipes"  ORDER BY id ASC
+  INFO 12:52:40 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 12:52:40 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 12:52:40 SELECT * FROM recipebook."Recipes"  ORDER BY id ASC
+  INFO 12:52:40 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 12:52:40 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 12:56:20 SELECT * FROM recipebook."Recipes"  ORDER BY id ASC
+  INFO 12:56:20 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 12:56:20 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 12:56:20 SELECT * FROM recipebook."Recipes"  ORDER BY id ASC
+  INFO 12:56:20 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 12:56:20 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 12:56:21 SELECT * FROM recipebook."Recipes"  ORDER BY id ASC
+  INFO 12:56:21 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 12:56:21 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 12:56:21 SELECT * FROM recipebook."Recipes"  ORDER BY id ASC
+  INFO 12:56:21 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 12:56:21 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 13:00:11 SELECT * FROM recipebook."Recipes"  ORDER BY id ASC
+  INFO 13:00:11 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 13:00:11 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:33:19 DROP TABLE IF EXISTS recipebook."Recipe_Ingredients" CASCADE;
+  INFO 17:33:19 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:33:19 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:33:19 DROP TABLE IF EXISTS recipebook."Recipes" CASCADE;
+  INFO 17:33:19 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:33:19 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:33:19 DROP TABLE IF EXISTS recipebook."Units" CASCADE;
+  INFO 17:33:19 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:33:19 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:33:19 DROP TABLE IF EXISTS recipebook."Kinds" CASCADE;
+  INFO 17:33:19 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:33:19 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:33:19 DROP TABLE IF EXISTS recipebook."Ingredients" CASCADE;
+  INFO 17:33:19 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:33:19 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:33:19 Database deleted
+  INFO 17:33:19 CREATE SCHEMA IF NOT EXISTS recipebook;
+  INFO 17:33:19 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:33:19 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:33:19 CREATE TABLE IF NOT EXISTS recipebook."Ingredients" ( id serial PRIMARY KEY, name text NOT NULL, protein numeric, carbohydrates numeric, fat numeric );
+  INFO 17:33:19 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:33:19 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:33:19 CREATE TABLE IF NOT EXISTS recipebook."Kinds" ( id serial PRIMARY KEY, name text NOT NULL );
+  INFO 17:33:19 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:33:19 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:33:19 CREATE TABLE IF NOT EXISTS recipebook."Units" ( id serial PRIMARY KEY, name text NOT NULL );
+  INFO 17:33:19 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:33:19 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:33:19 CREATE TABLE IF NOT EXISTS recipebook."Recipes" ( id serial PRIMARY KEY, title text NOT NULL, difficulty integer NOT NULL, preparation integer NOT NULL, cooking integer NOT NULL, kind_id integer NOT NULL, instructions text[],  CONSTRAINT "kind_fk" FOREIGN KEY (kind_id) REFERENCES recipebook."Kinds" (id) );
+  INFO 17:33:19 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:33:19 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:33:19 CREATE TABLE IF NOT EXISTS recipebook."Recipe_Ingredients" ( id serial PRIMARY KEY, ingredient_id integer NOT NULL, category text, amount numeric, recipe_id integer NOT NULL, unit_id integer NOT NULL,  CONSTRAINT "ingredient_fk" FOREIGN KEY (ingredient_id) REFERENCES recipebook."Ingredients" (id), CONSTRAINT "recipe_fk" FOREIGN KEY (recipe_id) REFERENCES recipebook."Recipes" (id), CONSTRAINT "unit_fk" FOREIGN KEY(unit_id) REFERENCES recipebook."Units" (id) );
+  INFO 17:33:19 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:33:19 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:33:19 CREATE SCHEMA IF NOT EXISTS dogschool;
+  INFO 17:33:19 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:33:19 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:33:19 CREATE TABLE IF NOT EXISTS dogschool."Course" ( id uuid PRIMARY KEY DEFAULT gen_random_uuid(), name text NOT NULL );
+  INFO 17:33:19 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:33:19 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:33:19 CREATE TABLE IF NOT EXISTS dogschool."Section" ( id uuid PRIMARY KEY, name text NOT NULL, course_id uuid NOT NULL,  CONSTRAINT "course_fk" FOREIGN KEY (course_id) REFERENCES dogschool."Course" (id) );
+  INFO 17:33:19 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:33:19 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:33:19 CREATE TABLE IF NOT EXISTS dogschool."Video" ( id uuid PRIMARY KEY DEFAULT gen_random_uuid(), name text NOT NULL, section_id uuid NOT NULL,  CONSTRAINT "section_fk" FOREIGN KEY (section_id) REFERENCES dogschool."Section" (id) );
+  INFO 17:33:19 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:33:19 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:33:19 Database created
+  INFO 17:33:19 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:33:19 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:33:19 INSERT INTO recipebook."Ingredients"(name) VALUES ('Haferflocken')
+  INFO 17:33:19 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:33:20 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:33:20 INSERT INTO recipebook."Ingredients"(name) VALUES ('Vanilleproteinpulver')
+  INFO 17:33:20 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:33:20 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:33:20 INSERT INTO recipebook."Ingredients"(name) VALUES ('Äpfel')
+  INFO 17:33:20 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:33:20 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:33:20 INSERT INTO recipebook."Ingredients"(name) VALUES ('Brauner Zucker')
+  INFO 17:33:20 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:33:20 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:33:20 INSERT INTO recipebook."Ingredients"(name) VALUES ('Zimt')
+  INFO 17:33:20 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:33:20 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:33:20 INSERT INTO recipebook."Ingredients"(name) VALUES ('Butter (Vegan)')
+  INFO 17:33:20 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:33:20 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:33:20 INSERT INTO recipebook."Ingredients"(name) VALUES ('Apfelmus')
+  INFO 17:33:20 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:33:20 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:33:20 INSERT INTO recipebook."Ingredients"(name) VALUES ('Hafermilch')
+  INFO 17:33:20 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:33:20 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:33:20 INSERT INTO recipebook."Units"(name) VALUES ('g')
+  INFO 17:33:20 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:33:20 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:33:20 INSERT INTO recipebook."Units"(name) VALUES ('ml')
+  INFO 17:33:20 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:33:20 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:33:20 INSERT INTO recipebook."Units"(name) VALUES ('Etwas')
+  INFO 17:33:20 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:33:20 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:33:20 INSERT INTO recipebook."Kinds"(name) VALUES ('Vorspeise')
+  INFO 17:33:20 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:33:20 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:33:20 INSERT INTO recipebook."Kinds"(name) VALUES ('Hauptspeise')
+  INFO 17:33:20 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:33:20 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:33:20 INSERT INTO recipebook."Kinds"(name) VALUES ('Dessert')
+  INFO 17:33:20 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:33:20 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:33:20 INSERT INTO recipebook."Kinds"(name) VALUES ('Süßspeise')
+  INFO 17:33:20 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:33:20 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:33:20 INSERT INTO recipebook."Recipes"(title,difficulty,preparation,cooking,kind_id,instructions) VALUES ('Apfelkuchen (Vegan)',2,25,40,4,?)
+  INFO 17:33:20 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:33:20 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:33:35 SELECT * FROM recipebook."Units"  ORDER BY id ASC
+  INFO 17:33:35 SELECT * FROM recipebook."Kinds"  ORDER BY id ASC
+  INFO 17:33:35 Verbindung zur Datenbank wird versucht aufzubauen.
+  INFO 17:33:35 SELECT * FROM recipebook."Ingredients"  ORDER BY id ASC
+  INFO 17:33:35 Verbindung zur Datenbank wird versucht aufzubauen.
+  INFO 17:33:35 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:33:35 Verbindung zur Datenbank wurde aufgebaut.
+  FINE 17:33:35 Verbindung zur Datenbank wurde aufgebaut.
+  FINE 17:33:35 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:33:35 SELECT * FROM recipebook."Kinds"  ORDER BY id ASC
+  INFO 17:33:35 SELECT * FROM recipebook."Ingredients"  ORDER BY id ASC
+  INFO 17:33:35 Verbindung zur Datenbank wird versucht aufzubauen.
+  INFO 17:33:35 SELECT * FROM recipebook."Units"  ORDER BY id ASC
+  INFO 17:33:35 Verbindung zur Datenbank wird versucht aufzubauen.
+  INFO 17:33:35 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:33:35 Verbindung zur Datenbank wurde aufgebaut.
+  FINE 17:33:35 Verbindung zur Datenbank wurde aufgebaut.
+  FINE 17:33:35 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:34:57 SELECT * FROM recipebook."Ingredients"  ORDER BY id ASC
+  INFO 17:34:57 Verbindung zur Datenbank wird versucht aufzubauen.
+  INFO 17:34:57 SELECT * FROM recipebook."Units"  ORDER BY id ASC
+  INFO 17:34:57 Verbindung zur Datenbank wird versucht aufzubauen.
+  INFO 17:34:57 SELECT * FROM recipebook."Kinds"  ORDER BY id ASC
+  INFO 17:34:57 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:34:57 Verbindung zur Datenbank wurde aufgebaut.
+  FINE 17:34:57 Verbindung zur Datenbank wurde aufgebaut.
+  FINE 17:34:57 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:36:27 SELECT * FROM recipebook."Ingredients"  ORDER BY id ASC
+  INFO 17:36:27 Verbindung zur Datenbank wird versucht aufzubauen.
+  INFO 17:36:27 SELECT * FROM recipebook."Units"  ORDER BY id ASC
+  INFO 17:36:27 Verbindung zur Datenbank wird versucht aufzubauen.
+  INFO 17:36:27 SELECT * FROM recipebook."Kinds"  ORDER BY id ASC
+  INFO 17:36:27 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:36:27 Verbindung zur Datenbank wurde aufgebaut.
+  FINE 17:36:27 Verbindung zur Datenbank wurde aufgebaut.
+  FINE 17:36:27 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:36:44 SELECT * FROM recipebook."Ingredients"  ORDER BY id ASC
+  INFO 17:36:44 Verbindung zur Datenbank wird versucht aufzubauen.
+  INFO 17:36:44 SELECT * FROM recipebook."Units"  ORDER BY id ASC
+  INFO 17:36:44 Verbindung zur Datenbank wird versucht aufzubauen.
+  INFO 17:36:44 SELECT * FROM recipebook."Kinds"  ORDER BY id ASC
+  INFO 17:36:44 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:36:44 Verbindung zur Datenbank wurde aufgebaut.
+  FINE 17:36:44 Verbindung zur Datenbank wurde aufgebaut.
+  FINE 17:36:44 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:37:57 SELECT * FROM recipebook."Ingredients"  ORDER BY id ASC
+  INFO 17:37:57 SELECT * FROM recipebook."Kinds"  ORDER BY id ASC
+  INFO 17:37:57 Verbindung zur Datenbank wird versucht aufzubauen.
+  INFO 17:37:57 SELECT * FROM recipebook."Units"  ORDER BY id ASC
+  INFO 17:37:57 Verbindung zur Datenbank wird versucht aufzubauen.
+  INFO 17:37:57 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:37:57 Verbindung zur Datenbank wurde aufgebaut.
+  FINE 17:37:57 Verbindung zur Datenbank wurde aufgebaut.
+  FINE 17:37:57 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:39:06 SELECT * FROM recipebook."Ingredients"  ORDER BY id ASC
+  INFO 17:39:06 Verbindung zur Datenbank wird versucht aufzubauen.
+  INFO 17:39:06 SELECT * FROM recipebook."Kinds"  ORDER BY id ASC
+  INFO 17:39:06 Verbindung zur Datenbank wird versucht aufzubauen.
+  INFO 17:39:06 SELECT * FROM recipebook."Units"  ORDER BY id ASC
+  INFO 17:39:06 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:39:06 Verbindung zur Datenbank wurde aufgebaut.
+  FINE 17:39:06 Verbindung zur Datenbank wurde aufgebaut.
+  FINE 17:39:06 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:39:20 SELECT * FROM recipebook."Ingredients"  ORDER BY id ASC
+  INFO 17:39:20 Verbindung zur Datenbank wird versucht aufzubauen.
+  INFO 17:39:20 SELECT * FROM recipebook."Kinds"  ORDER BY id ASC
+  INFO 17:39:20 Verbindung zur Datenbank wird versucht aufzubauen.
+  INFO 17:39:20 SELECT * FROM recipebook."Units"  ORDER BY id ASC
+  INFO 17:39:20 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:39:20 Verbindung zur Datenbank wurde aufgebaut.
+  FINE 17:39:20 Verbindung zur Datenbank wurde aufgebaut.
+  FINE 17:39:20 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:41:53 SELECT * FROM recipebook."Units"  ORDER BY id ASC
+  INFO 17:41:53 Verbindung zur Datenbank wird versucht aufzubauen.
+  INFO 17:41:53 SELECT * FROM recipebook."Ingredients"  ORDER BY id ASC
+  INFO 17:41:53 Verbindung zur Datenbank wird versucht aufzubauen.
+  INFO 17:41:53 SELECT * FROM recipebook."Kinds"  ORDER BY id ASC
+  INFO 17:41:53 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:41:53 Verbindung zur Datenbank wurde aufgebaut.
+  FINE 17:41:53 Verbindung zur Datenbank wurde aufgebaut.
+  FINE 17:41:53 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:43:21 SELECT * FROM recipebook."Ingredients"  ORDER BY id ASC
+  INFO 17:43:21 Verbindung zur Datenbank wird versucht aufzubauen.
+  INFO 17:43:21 SELECT * FROM recipebook."Units"  ORDER BY id ASC
+  INFO 17:43:21 Verbindung zur Datenbank wird versucht aufzubauen.
+  INFO 17:43:21 SELECT * FROM recipebook."Kinds"  ORDER BY id ASC
+  INFO 17:43:21 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:43:21 Verbindung zur Datenbank wurde aufgebaut.
+  FINE 17:43:21 Verbindung zur Datenbank wurde aufgebaut.
+  FINE 17:43:21 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:43:30 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:43:30 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:43:30 INSERT INTO recipebook."Recipes"(title,difficulty,preparation,cooking,kind_id,instructions) VALUES ('Titel',4,13,15,2,?)
+  INFO 17:43:30 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:43:31 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:45:56 DROP TABLE IF EXISTS recipebook."Recipe_Ingredients" CASCADE;
+  INFO 17:45:56 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:45:56 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:45:56 DROP TABLE IF EXISTS recipebook."Recipes" CASCADE;
+  INFO 17:45:56 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:45:56 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:45:56 DROP TABLE IF EXISTS recipebook."Units" CASCADE;
+  INFO 17:45:56 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:45:56 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:45:56 DROP TABLE IF EXISTS recipebook."Kinds" CASCADE;
+  INFO 17:45:56 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:45:56 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:45:56 DROP TABLE IF EXISTS recipebook."Ingredients" CASCADE;
+  INFO 17:45:56 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:45:56 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:45:56 Database deleted
+  INFO 17:45:56 CREATE SCHEMA IF NOT EXISTS recipebook;
+  INFO 17:45:56 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:45:56 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:45:56 CREATE TABLE IF NOT EXISTS recipebook."Ingredients" ( id serial PRIMARY KEY, name text NOT NULL, protein numeric, carbohydrates numeric, fat numeric );
+  INFO 17:45:56 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:45:56 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:45:56 CREATE TABLE IF NOT EXISTS recipebook."Kinds" ( id serial PRIMARY KEY, name text NOT NULL );
+  INFO 17:45:56 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:45:56 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:45:56 CREATE TABLE IF NOT EXISTS recipebook."Units" ( id serial PRIMARY KEY, name text NOT NULL );
+  INFO 17:45:56 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:45:56 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:45:56 CREATE TABLE IF NOT EXISTS recipebook."Recipes" ( id serial PRIMARY KEY, title text NOT NULL, difficulty integer NOT NULL, preparation integer NOT NULL, cooking integer NOT NULL, kind_id integer NOT NULL, instructions text[],  CONSTRAINT "kind_fk" FOREIGN KEY (kind_id) REFERENCES recipebook."Kinds" (id) );
+  INFO 17:45:56 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:45:56 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:45:56 CREATE TABLE IF NOT EXISTS recipebook."Recipe_Ingredients" ( id serial PRIMARY KEY, ingredient_id integer NOT NULL, category text, amount numeric, recipe_id integer NOT NULL, unit_id integer NOT NULL,  CONSTRAINT "ingredient_fk" FOREIGN KEY (ingredient_id) REFERENCES recipebook."Ingredients" (id), CONSTRAINT "recipe_fk" FOREIGN KEY (recipe_id) REFERENCES recipebook."Recipes" (id), CONSTRAINT "unit_fk" FOREIGN KEY(unit_id) REFERENCES recipebook."Units" (id) );
+  INFO 17:45:56 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:45:56 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:45:56 CREATE SCHEMA IF NOT EXISTS dogschool;
+  INFO 17:45:56 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:45:56 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:45:56 CREATE TABLE IF NOT EXISTS dogschool."Course" ( id uuid PRIMARY KEY DEFAULT gen_random_uuid(), name text NOT NULL );
+  INFO 17:45:56 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:45:56 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:45:56 CREATE TABLE IF NOT EXISTS dogschool."Section" ( id uuid PRIMARY KEY, name text NOT NULL, course_id uuid NOT NULL,  CONSTRAINT "course_fk" FOREIGN KEY (course_id) REFERENCES dogschool."Course" (id) );
+  INFO 17:45:56 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:45:56 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:45:56 CREATE TABLE IF NOT EXISTS dogschool."Video" ( id uuid PRIMARY KEY DEFAULT gen_random_uuid(), name text NOT NULL, section_id uuid NOT NULL,  CONSTRAINT "section_fk" FOREIGN KEY (section_id) REFERENCES dogschool."Section" (id) );
+  INFO 17:45:56 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:45:57 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:45:57 Database created
+  INFO 17:45:57 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:45:57 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:45:57 INSERT INTO recipebook."Ingredients"(name) VALUES ('Haferflocken')
+  INFO 17:45:57 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:45:57 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:45:57 INSERT INTO recipebook."Ingredients"(name) VALUES ('Vanilleproteinpulver')
+  INFO 17:45:57 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:45:57 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:45:57 INSERT INTO recipebook."Ingredients"(name) VALUES ('Äpfel')
+  INFO 17:45:57 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:45:57 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:45:57 INSERT INTO recipebook."Ingredients"(name) VALUES ('Brauner Zucker')
+  INFO 17:45:57 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:45:57 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:45:57 INSERT INTO recipebook."Ingredients"(name) VALUES ('Zimt')
+  INFO 17:45:57 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:45:57 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:45:57 INSERT INTO recipebook."Ingredients"(name) VALUES ('Butter (Vegan)')
+  INFO 17:45:57 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:45:57 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:45:57 INSERT INTO recipebook."Ingredients"(name) VALUES ('Apfelmus')
+  INFO 17:45:57 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:45:57 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:45:57 INSERT INTO recipebook."Ingredients"(name) VALUES ('Hafermilch')
+  INFO 17:45:57 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:45:57 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:45:57 INSERT INTO recipebook."Units"(name) VALUES ('g')
+  INFO 17:45:57 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:45:57 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:45:57 INSERT INTO recipebook."Units"(name) VALUES ('ml')
+  INFO 17:45:57 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:45:57 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:45:57 INSERT INTO recipebook."Units"(name) VALUES ('Etwas')
+  INFO 17:45:57 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:45:57 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:45:57 INSERT INTO recipebook."Kinds"(name) VALUES ('Vorspeise')
+  INFO 17:45:57 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:45:57 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:45:57 INSERT INTO recipebook."Kinds"(name) VALUES ('Hauptspeise')
+  INFO 17:45:57 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:45:57 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:45:57 INSERT INTO recipebook."Kinds"(name) VALUES ('Dessert')
+  INFO 17:45:57 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:45:57 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:45:57 INSERT INTO recipebook."Kinds"(name) VALUES ('Süßspeise')
+  INFO 17:45:57 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:45:57 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:45:57 INSERT INTO recipebook."Recipes"(title,difficulty,preparation,cooking,kind_id,instructions) VALUES ('Apfelkuchen (Vegan)',2,25,40,4,?)
+  INFO 17:45:57 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:45:57 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:46:22 DROP TABLE IF EXISTS recipebook."Recipe_Ingredients" CASCADE;
+  INFO 17:46:22 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:46:22 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:46:22 DROP TABLE IF EXISTS recipebook."Recipes" CASCADE;
+  INFO 17:46:22 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:46:22 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:46:22 DROP TABLE IF EXISTS recipebook."Units" CASCADE;
+  INFO 17:46:22 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:46:22 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:46:22 DROP TABLE IF EXISTS recipebook."Kinds" CASCADE;
+  INFO 17:46:22 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:46:22 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:46:22 DROP TABLE IF EXISTS recipebook."Ingredients" CASCADE;
+  INFO 17:46:22 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:46:22 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:46:22 Database deleted
+  INFO 17:46:22 CREATE SCHEMA IF NOT EXISTS recipebook;
+  INFO 17:46:22 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:46:22 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:46:22 CREATE TABLE IF NOT EXISTS recipebook."Ingredients" ( id serial PRIMARY KEY, name text NOT NULL, protein numeric, carbohydrates numeric, fat numeric );
+  INFO 17:46:22 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:46:22 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:46:22 CREATE TABLE IF NOT EXISTS recipebook."Kinds" ( id serial PRIMARY KEY, name text NOT NULL );
+  INFO 17:46:22 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:46:22 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:46:22 CREATE TABLE IF NOT EXISTS recipebook."Units" ( id serial PRIMARY KEY, name text NOT NULL );
+  INFO 17:46:22 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:46:23 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:46:23 CREATE TABLE IF NOT EXISTS recipebook."Recipes" ( id serial PRIMARY KEY, title text NOT NULL, difficulty integer NOT NULL, preparation integer NOT NULL, cooking integer NOT NULL, kind_id integer NOT NULL, instructions text[],  CONSTRAINT "kind_fk" FOREIGN KEY (kind_id) REFERENCES recipebook."Kinds" (id) );
+  INFO 17:46:23 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:46:23 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:46:23 CREATE TABLE IF NOT EXISTS recipebook."Recipe_Ingredients" ( id serial PRIMARY KEY, ingredient_id integer NOT NULL, category text, amount numeric, recipe_id integer NOT NULL, unit_id integer NOT NULL,  CONSTRAINT "ingredient_fk" FOREIGN KEY (ingredient_id) REFERENCES recipebook."Ingredients" (id), CONSTRAINT "recipe_fk" FOREIGN KEY (recipe_id) REFERENCES recipebook."Recipes" (id), CONSTRAINT "unit_fk" FOREIGN KEY(unit_id) REFERENCES recipebook."Units" (id) );
+  INFO 17:46:23 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:46:23 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:46:23 CREATE SCHEMA IF NOT EXISTS dogschool;
+  INFO 17:46:23 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:46:23 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:46:23 CREATE TABLE IF NOT EXISTS dogschool."Course" ( id uuid PRIMARY KEY DEFAULT gen_random_uuid(), name text NOT NULL );
+  INFO 17:46:23 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:46:23 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:46:23 CREATE TABLE IF NOT EXISTS dogschool."Section" ( id uuid PRIMARY KEY, name text NOT NULL, course_id uuid NOT NULL,  CONSTRAINT "course_fk" FOREIGN KEY (course_id) REFERENCES dogschool."Course" (id) );
+  INFO 17:46:23 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:46:23 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:46:23 CREATE TABLE IF NOT EXISTS dogschool."Video" ( id uuid PRIMARY KEY DEFAULT gen_random_uuid(), name text NOT NULL, section_id uuid NOT NULL,  CONSTRAINT "section_fk" FOREIGN KEY (section_id) REFERENCES dogschool."Section" (id) );
+  INFO 17:46:23 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:46:23 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:46:23 Database created
+  INFO 17:46:23 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:46:23 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:46:23 INSERT INTO recipebook."Ingredients"(name) VALUES ('Haferflocken')
+  INFO 17:46:23 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:46:23 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:46:23 INSERT INTO recipebook."Ingredients"(name) VALUES ('Vanilleproteinpulver')
+  INFO 17:46:23 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:46:23 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:46:23 INSERT INTO recipebook."Ingredients"(name) VALUES ('Äpfel')
+  INFO 17:46:23 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:46:23 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:46:23 INSERT INTO recipebook."Ingredients"(name) VALUES ('Brauner Zucker')
+  INFO 17:46:23 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:46:23 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:46:23 INSERT INTO recipebook."Ingredients"(name) VALUES ('Zimt')
+  INFO 17:46:23 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:46:23 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:46:23 INSERT INTO recipebook."Ingredients"(name) VALUES ('Butter (Vegan)')
+  INFO 17:46:23 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:46:23 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:46:23 INSERT INTO recipebook."Ingredients"(name) VALUES ('Apfelmus')
+  INFO 17:46:23 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:46:23 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:46:23 INSERT INTO recipebook."Ingredients"(name) VALUES ('Hafermilch')
+  INFO 17:46:23 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:46:23 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:46:23 INSERT INTO recipebook."Units"(name) VALUES ('g')
+  INFO 17:46:23 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:46:23 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:46:23 INSERT INTO recipebook."Units"(name) VALUES ('ml')
+  INFO 17:46:23 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:46:23 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:46:23 INSERT INTO recipebook."Units"(name) VALUES ('Etwas')
+  INFO 17:46:23 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:46:23 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:46:23 INSERT INTO recipebook."Kinds"(name) VALUES ('Vorspeise')
+  INFO 17:46:23 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:46:23 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:46:23 INSERT INTO recipebook."Kinds"(name) VALUES ('Hauptspeise')
+  INFO 17:46:23 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:46:23 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:46:23 INSERT INTO recipebook."Kinds"(name) VALUES ('Dessert')
+  INFO 17:46:23 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:46:23 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:46:23 INSERT INTO recipebook."Kinds"(name) VALUES ('Süßspeise')
+  INFO 17:46:23 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:46:23 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:46:23 INSERT INTO recipebook."Recipes"(title,difficulty,preparation,cooking,kind_id,instructions) VALUES ('Apfelkuchen (Vegan)',2,25,40,4,?)
+  INFO 17:46:23 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:46:23 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:46:51 DROP TABLE IF EXISTS recipebook."Recipe_Ingredients" CASCADE;
+  INFO 17:46:51 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:46:52 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:46:52 DROP TABLE IF EXISTS recipebook."Recipes" CASCADE;
+  INFO 17:46:52 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:46:52 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:46:52 DROP TABLE IF EXISTS recipebook."Units" CASCADE;
+  INFO 17:46:52 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:46:52 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:46:52 DROP TABLE IF EXISTS recipebook."Kinds" CASCADE;
+  INFO 17:46:52 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:46:52 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:46:52 DROP TABLE IF EXISTS recipebook."Ingredients" CASCADE;
+  INFO 17:46:52 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:46:52 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:46:52 Database deleted
+  INFO 17:46:52 CREATE SCHEMA IF NOT EXISTS recipebook;
+  INFO 17:46:52 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:46:52 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:46:52 CREATE TABLE IF NOT EXISTS recipebook."Ingredients" ( id serial PRIMARY KEY, name text NOT NULL, protein numeric, carbohydrates numeric, fat numeric );
+  INFO 17:46:52 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:46:52 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:46:52 CREATE TABLE IF NOT EXISTS recipebook."Kinds" ( id serial PRIMARY KEY, name text NOT NULL );
+  INFO 17:46:52 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:46:52 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:46:52 CREATE TABLE IF NOT EXISTS recipebook."Units" ( id serial PRIMARY KEY, name text NOT NULL );
+  INFO 17:46:52 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:46:52 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:46:52 CREATE TABLE IF NOT EXISTS recipebook."Recipes" ( id serial PRIMARY KEY, title text NOT NULL, difficulty integer NOT NULL, preparation integer NOT NULL, cooking integer NOT NULL, kind_id integer NOT NULL, instructions text[],  CONSTRAINT "kind_fk" FOREIGN KEY (kind_id) REFERENCES recipebook."Kinds" (id) );
+  INFO 17:46:52 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:46:52 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:46:52 CREATE TABLE IF NOT EXISTS recipebook."Recipe_Ingredients" ( id serial PRIMARY KEY, ingredient_id integer NOT NULL, category text, amount numeric, recipe_id integer NOT NULL, unit_id integer NOT NULL,  CONSTRAINT "ingredient_fk" FOREIGN KEY (ingredient_id) REFERENCES recipebook."Ingredients" (id), CONSTRAINT "recipe_fk" FOREIGN KEY (recipe_id) REFERENCES recipebook."Recipes" (id), CONSTRAINT "unit_fk" FOREIGN KEY(unit_id) REFERENCES recipebook."Units" (id) );
+  INFO 17:46:52 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:46:52 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:46:52 CREATE SCHEMA IF NOT EXISTS dogschool;
+  INFO 17:46:52 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:46:52 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:46:52 CREATE TABLE IF NOT EXISTS dogschool."Course" ( id uuid PRIMARY KEY DEFAULT gen_random_uuid(), name text NOT NULL );
+  INFO 17:46:52 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:46:52 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:46:52 CREATE TABLE IF NOT EXISTS dogschool."Section" ( id uuid PRIMARY KEY, name text NOT NULL, course_id uuid NOT NULL,  CONSTRAINT "course_fk" FOREIGN KEY (course_id) REFERENCES dogschool."Course" (id) );
+  INFO 17:46:52 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:46:52 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:46:52 CREATE TABLE IF NOT EXISTS dogschool."Video" ( id uuid PRIMARY KEY DEFAULT gen_random_uuid(), name text NOT NULL, section_id uuid NOT NULL,  CONSTRAINT "section_fk" FOREIGN KEY (section_id) REFERENCES dogschool."Section" (id) );
+  INFO 17:46:52 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:46:52 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:46:52 Database created
+  INFO 17:46:52 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:46:52 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:46:52 INSERT INTO recipebook."Ingredients"(name) VALUES ('Haferflocken')
+  INFO 17:46:52 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:46:52 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:46:52 INSERT INTO recipebook."Ingredients"(name) VALUES ('Vanilleproteinpulver')
+  INFO 17:46:52 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:46:52 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:46:52 INSERT INTO recipebook."Ingredients"(name) VALUES ('Äpfel')
+  INFO 17:46:52 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:46:52 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:46:52 INSERT INTO recipebook."Ingredients"(name) VALUES ('Brauner Zucker')
+  INFO 17:46:52 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:46:52 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:46:52 INSERT INTO recipebook."Ingredients"(name) VALUES ('Zimt')
+  INFO 17:46:52 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:46:52 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:46:52 INSERT INTO recipebook."Ingredients"(name) VALUES ('Butter (Vegan)')
+  INFO 17:46:52 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:46:52 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:46:52 INSERT INTO recipebook."Ingredients"(name) VALUES ('Apfelmus')
+  INFO 17:46:52 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:46:52 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:46:52 INSERT INTO recipebook."Ingredients"(name) VALUES ('Hafermilch')
+  INFO 17:46:52 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:46:52 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:46:52 INSERT INTO recipebook."Units"(name) VALUES ('g')
+  INFO 17:46:52 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:46:52 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:46:52 INSERT INTO recipebook."Units"(name) VALUES ('ml')
+  INFO 17:46:52 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:46:52 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:46:52 INSERT INTO recipebook."Units"(name) VALUES ('Etwas')
+  INFO 17:46:52 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:46:53 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:46:53 INSERT INTO recipebook."Kinds"(name) VALUES ('Vorspeise')
+  INFO 17:46:53 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:46:53 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:46:53 INSERT INTO recipebook."Kinds"(name) VALUES ('Hauptspeise')
+  INFO 17:46:53 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:46:53 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:46:53 INSERT INTO recipebook."Kinds"(name) VALUES ('Dessert')
+  INFO 17:46:53 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:46:53 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:46:53 INSERT INTO recipebook."Kinds"(name) VALUES ('Süßspeise')
+  INFO 17:46:53 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:46:53 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:46:53 INSERT INTO recipebook."Recipes"(title,difficulty,preparation,cooking,kind_id,instructions) VALUES ('Apfelkuchen (Vegan)',2,25,40,4,?)
+  INFO 17:46:53 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:46:53 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:47:53 DROP TABLE IF EXISTS recipebook."Recipe_Ingredients" CASCADE;
+  INFO 17:47:53 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:47:53 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:47:53 DROP TABLE IF EXISTS recipebook."Recipes" CASCADE;
+  INFO 17:47:53 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:47:53 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:47:53 DROP TABLE IF EXISTS recipebook."Units" CASCADE;
+  INFO 17:47:53 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:47:53 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:47:53 DROP TABLE IF EXISTS recipebook."Kinds" CASCADE;
+  INFO 17:47:53 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:47:53 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:47:53 DROP TABLE IF EXISTS recipebook."Ingredients" CASCADE;
+  INFO 17:47:53 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:47:53 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:47:53 Database deleted
+  INFO 17:47:53 CREATE SCHEMA IF NOT EXISTS recipebook;
+  INFO 17:47:53 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:47:53 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:47:53 CREATE TABLE IF NOT EXISTS recipebook."Ingredients" ( id serial PRIMARY KEY, name text NOT NULL, protein numeric, carbohydrates numeric, fat numeric );
+  INFO 17:47:53 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:47:53 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:47:53 CREATE TABLE IF NOT EXISTS recipebook."Kinds" ( id serial PRIMARY KEY, name text NOT NULL );
+  INFO 17:47:53 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:47:53 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:47:53 CREATE TABLE IF NOT EXISTS recipebook."Units" ( id serial PRIMARY KEY, name text NOT NULL );
+  INFO 17:47:53 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:47:53 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:47:53 CREATE TABLE IF NOT EXISTS recipebook."Recipes" ( id serial PRIMARY KEY, title text NOT NULL, difficulty integer NOT NULL, preparation integer NOT NULL, cooking integer NOT NULL, kind_id integer NOT NULL, instructions text[],  CONSTRAINT "kind_fk" FOREIGN KEY (kind_id) REFERENCES recipebook."Kinds" (id) );
+  INFO 17:47:53 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:47:53 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:47:53 CREATE TABLE IF NOT EXISTS recipebook."Recipe_Ingredients" ( id serial PRIMARY KEY, ingredient_id integer NOT NULL, category text, amount numeric, recipe_id integer NOT NULL, unit_id integer NOT NULL,  CONSTRAINT "ingredient_fk" FOREIGN KEY (ingredient_id) REFERENCES recipebook."Ingredients" (id), CONSTRAINT "recipe_fk" FOREIGN KEY (recipe_id) REFERENCES recipebook."Recipes" (id), CONSTRAINT "unit_fk" FOREIGN KEY(unit_id) REFERENCES recipebook."Units" (id) );
+  INFO 17:47:53 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:47:53 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:47:53 CREATE SCHEMA IF NOT EXISTS dogschool;
+  INFO 17:47:53 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:47:53 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:47:53 CREATE TABLE IF NOT EXISTS dogschool."Course" ( id uuid PRIMARY KEY DEFAULT gen_random_uuid(), name text NOT NULL );
+  INFO 17:47:53 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:47:54 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:47:54 CREATE TABLE IF NOT EXISTS dogschool."Section" ( id uuid PRIMARY KEY, name text NOT NULL, course_id uuid NOT NULL,  CONSTRAINT "course_fk" FOREIGN KEY (course_id) REFERENCES dogschool."Course" (id) );
+  INFO 17:47:54 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:47:54 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:47:54 CREATE TABLE IF NOT EXISTS dogschool."Video" ( id uuid PRIMARY KEY DEFAULT gen_random_uuid(), name text NOT NULL, section_id uuid NOT NULL,  CONSTRAINT "section_fk" FOREIGN KEY (section_id) REFERENCES dogschool."Section" (id) );
+  INFO 17:47:54 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:47:54 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:47:54 Database created
+  INFO 17:47:54 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:47:54 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:47:54 INSERT INTO recipebook."Ingredients"(name) VALUES ('Haferflocken')
+  INFO 17:47:54 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:47:54 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:47:54 INSERT INTO recipebook."Ingredients"(name) VALUES ('Vanilleproteinpulver')
+  INFO 17:47:54 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:47:54 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:47:54 INSERT INTO recipebook."Ingredients"(name) VALUES ('Äpfel')
+  INFO 17:47:54 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:47:54 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:47:54 INSERT INTO recipebook."Ingredients"(name) VALUES ('Brauner Zucker')
+  INFO 17:47:54 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:47:54 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:47:54 INSERT INTO recipebook."Ingredients"(name) VALUES ('Zimt')
+  INFO 17:47:54 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:47:54 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:47:54 INSERT INTO recipebook."Ingredients"(name) VALUES ('Butter (Vegan)')
+  INFO 17:47:54 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:47:54 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:47:54 INSERT INTO recipebook."Ingredients"(name) VALUES ('Apfelmus')
+  INFO 17:47:54 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:47:54 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:47:54 INSERT INTO recipebook."Ingredients"(name) VALUES ('Hafermilch')
+  INFO 17:47:54 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:47:54 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:47:54 INSERT INTO recipebook."Units"(name) VALUES ('g')
+  INFO 17:47:54 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:47:54 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:47:54 INSERT INTO recipebook."Units"(name) VALUES ('ml')
+  INFO 17:47:54 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:47:54 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:47:54 INSERT INTO recipebook."Units"(name) VALUES ('Etwas')
+  INFO 17:47:54 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:47:54 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:47:54 INSERT INTO recipebook."Kinds"(name) VALUES ('Vorspeise')
+  INFO 17:47:54 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:47:54 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:47:54 INSERT INTO recipebook."Kinds"(name) VALUES ('Hauptspeise')
+  INFO 17:47:54 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:47:54 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:47:54 INSERT INTO recipebook."Kinds"(name) VALUES ('Dessert')
+  INFO 17:47:54 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:47:54 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:47:54 INSERT INTO recipebook."Kinds"(name) VALUES ('Süßspeise')
+  INFO 17:47:54 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:47:54 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:47:54 INSERT INTO recipebook."Recipes"(title,difficulty,preparation,cooking,kind_id,instructions) VALUES ('Apfelkuchen (Vegan)',2,25,40,4,?)
+  INFO 17:47:54 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:47:54 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:47:54 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:47:54 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:47:54 INSERT INTO recipebook."Recipe_Ingredients"(ingredient_id,category,amount,recipe_id,unit_id) VALUES (1,'',240.0,1,1)
+  INFO 17:47:54 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:47:54 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:47:54 INSERT INTO recipebook."Recipe_Ingredients"(ingredient_id,category,amount,recipe_id,unit_id) VALUES (2,'',60.0,1,1)
+  INFO 17:47:54 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:47:54 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:47:54 INSERT INTO recipebook."Recipe_Ingredients"(ingredient_id,category,amount,recipe_id,unit_id) VALUES (3,'',600.0,1,1)
+  INFO 17:47:54 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:47:54 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:47:54 INSERT INTO recipebook."Recipe_Ingredients"(ingredient_id,category,amount,recipe_id,unit_id) VALUES (4,'',48.0,1,1)
+  INFO 17:47:54 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:47:54 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:47:54 INSERT INTO recipebook."Recipe_Ingredients"(ingredient_id,category,amount,recipe_id,unit_id) VALUES (5,'',8.0,1,1)
+  INFO 17:47:54 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:47:54 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:47:54 INSERT INTO recipebook."Recipe_Ingredients"(ingredient_id,category,amount,recipe_id,unit_id) VALUES (6,'',28.0,1,1)
+  INFO 17:47:54 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:47:54 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:47:54 INSERT INTO recipebook."Recipe_Ingredients"(ingredient_id,category,amount,recipe_id,unit_id) VALUES (7,'',96.0,1,1)
+  INFO 17:47:54 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:47:54 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:47:54 INSERT INTO recipebook."Recipe_Ingredients"(ingredient_id,category,amount,recipe_id,unit_id) VALUES (8,'',480.0,1,1)
+  INFO 17:48:31 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:48:31 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:48:31 INSERT INTO recipebook."Recipes"(title,difficulty,preparation,cooking,kind_id,instructions) VALUES ('Titel',4,13,15,2,?)
+  INFO 17:48:31 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:48:31 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:48:31 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:48:31 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:48:31 INSERT INTO recipebook."Recipe_Ingredients"(ingredient_id,category,amount,recipe_id,unit_id) VALUES (0,'0',7.0,2,1)
+SEVERE 17:48:31 [org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2674), org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2364), org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:354), org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:484), org.postgresql.jdbc.PgStatement.execute(PgStatement.java:404), org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:162), org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:130), de.amit.controller.JDBCDriverConnection.executeAdd(JDBCDriverConnection.java:46), de.amit.controller.serviceTemplates.CategoryServiceImpl.add(CategoryServiceImpl.java:29), de.amit.controller.recipebook.serviceTemplates.RecipeIngredientController.add(RecipeIngredientController.java:55), java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104), java.base/java.lang.reflect.Method.invoke(Method.java:577), org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:207), org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:152), org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118), org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:884), org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:797), org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87), org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1081), org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:974), org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1011), org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914), jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590), org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885), jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658), org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205), org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149), org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51), org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174), org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149), de.amit.cors.CorsFilter.doFilter(CorsFilter.java:26), org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174), org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149), org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100), org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116), org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174), org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149), org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93), org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116), org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174), org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149), org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201), org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116), org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174), org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149), org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:166), org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90), org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482), org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115), org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93), org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74), org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:341), org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:390), org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63), org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:894), org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741), org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52), org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191), org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659), org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61), java.base/java.lang.Thread.run(Thread.java:833)]
+  INFO 17:48:31 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:48:31 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:48:31 INSERT INTO recipebook."Recipe_Ingredients"(ingredient_id,category,amount,recipe_id,unit_id) VALUES (1,'0',16.0,2,2)
+  INFO 17:48:31 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:48:31 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:48:31 INSERT INTO recipebook."Recipe_Ingredients"(ingredient_id,category,amount,recipe_id,unit_id) VALUES (1,'1',14.0,2,3)
+  INFO 17:48:31 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:48:31 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:48:31 INSERT INTO recipebook."Recipe_Ingredients"(ingredient_id,category,amount,recipe_id,unit_id) VALUES (2,'1',15.0,2,2)
+  INFO 17:51:13 DROP TABLE IF EXISTS recipebook."Recipe_Ingredients" CASCADE;
+  INFO 17:51:13 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:51:13 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:51:13 DROP TABLE IF EXISTS recipebook."Recipes" CASCADE;
+  INFO 17:51:13 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:51:13 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:51:13 DROP TABLE IF EXISTS recipebook."Units" CASCADE;
+  INFO 17:51:13 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:51:13 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:51:13 DROP TABLE IF EXISTS recipebook."Kinds" CASCADE;
+  INFO 17:51:13 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:51:13 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:51:13 DROP TABLE IF EXISTS recipebook."Ingredients" CASCADE;
+  INFO 17:51:13 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:51:13 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:51:13 Database deleted
+  INFO 17:51:13 CREATE SCHEMA IF NOT EXISTS recipebook;
+  INFO 17:51:13 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:51:13 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:51:13 CREATE TABLE IF NOT EXISTS recipebook."Ingredients" ( id serial PRIMARY KEY, name text NOT NULL, protein numeric, carbohydrates numeric, fat numeric );
+  INFO 17:51:13 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:51:13 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:51:13 CREATE TABLE IF NOT EXISTS recipebook."Kinds" ( id serial PRIMARY KEY, name text NOT NULL );
+  INFO 17:51:13 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:51:13 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:51:13 CREATE TABLE IF NOT EXISTS recipebook."Units" ( id serial PRIMARY KEY, name text NOT NULL );
+  INFO 17:51:13 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:51:13 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:51:13 CREATE TABLE IF NOT EXISTS recipebook."Recipes" ( id serial PRIMARY KEY, title text NOT NULL, difficulty integer NOT NULL, preparation integer NOT NULL, cooking integer NOT NULL, kind_id integer NOT NULL, instructions text[],  CONSTRAINT "kind_fk" FOREIGN KEY (kind_id) REFERENCES recipebook."Kinds" (id) );
+  INFO 17:51:13 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:51:13 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:51:13 CREATE TABLE IF NOT EXISTS recipebook."Recipe_Ingredients" ( id serial PRIMARY KEY, ingredient_id integer NOT NULL, category text, amount numeric, recipe_id integer NOT NULL, unit_id integer NOT NULL,  CONSTRAINT "ingredient_fk" FOREIGN KEY (ingredient_id) REFERENCES recipebook."Ingredients" (id), CONSTRAINT "recipe_fk" FOREIGN KEY (recipe_id) REFERENCES recipebook."Recipes" (id), CONSTRAINT "unit_fk" FOREIGN KEY(unit_id) REFERENCES recipebook."Units" (id) );
+  INFO 17:51:13 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:51:13 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:51:13 CREATE SCHEMA IF NOT EXISTS dogschool;
+  INFO 17:51:13 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:51:13 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:51:13 CREATE TABLE IF NOT EXISTS dogschool."Course" ( id uuid PRIMARY KEY DEFAULT gen_random_uuid(), name text NOT NULL );
+  INFO 17:51:13 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:51:13 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:51:13 CREATE TABLE IF NOT EXISTS dogschool."Section" ( id uuid PRIMARY KEY, name text NOT NULL, course_id uuid NOT NULL,  CONSTRAINT "course_fk" FOREIGN KEY (course_id) REFERENCES dogschool."Course" (id) );
+  INFO 17:51:13 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:51:13 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:51:13 CREATE TABLE IF NOT EXISTS dogschool."Video" ( id uuid PRIMARY KEY DEFAULT gen_random_uuid(), name text NOT NULL, section_id uuid NOT NULL,  CONSTRAINT "section_fk" FOREIGN KEY (section_id) REFERENCES dogschool."Section" (id) );
+  INFO 17:51:13 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:51:13 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:51:13 Database created
+  INFO 17:51:13 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:51:13 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:51:13 INSERT INTO recipebook."Ingredients"(name) VALUES ('Haferflocken')
+  INFO 17:51:13 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:51:13 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:51:13 INSERT INTO recipebook."Ingredients"(name) VALUES ('Vanilleproteinpulver')
+  INFO 17:51:13 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:51:13 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:51:13 INSERT INTO recipebook."Ingredients"(name) VALUES ('Äpfel')
+  INFO 17:51:13 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:51:14 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:51:14 INSERT INTO recipebook."Ingredients"(name) VALUES ('Brauner Zucker')
+  INFO 17:51:14 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:51:14 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:51:14 INSERT INTO recipebook."Ingredients"(name) VALUES ('Zimt')
+  INFO 17:51:14 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:51:14 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:51:14 INSERT INTO recipebook."Ingredients"(name) VALUES ('Butter (Vegan)')
+  INFO 17:51:14 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:51:14 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:51:14 INSERT INTO recipebook."Ingredients"(name) VALUES ('Apfelmus')
+  INFO 17:51:14 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:51:14 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:51:14 INSERT INTO recipebook."Ingredients"(name) VALUES ('Hafermilch')
+  INFO 17:51:14 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:51:14 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:51:14 INSERT INTO recipebook."Units"(name) VALUES ('g')
+  INFO 17:51:14 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:51:14 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:51:14 INSERT INTO recipebook."Units"(name) VALUES ('ml')
+  INFO 17:51:14 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:51:14 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:51:14 INSERT INTO recipebook."Units"(name) VALUES ('Etwas')
+  INFO 17:51:14 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:51:14 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:51:14 INSERT INTO recipebook."Kinds"(name) VALUES ('Vorspeise')
+  INFO 17:51:14 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:51:14 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:51:14 INSERT INTO recipebook."Kinds"(name) VALUES ('Hauptspeise')
+  INFO 17:51:14 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:51:14 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:51:14 INSERT INTO recipebook."Kinds"(name) VALUES ('Dessert')
+  INFO 17:51:14 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:51:14 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:51:14 INSERT INTO recipebook."Kinds"(name) VALUES ('Süßspeise')
+  INFO 17:51:14 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:51:14 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:51:14 INSERT INTO recipebook."Recipes"(title,difficulty,preparation,cooking,kind_id,instructions) VALUES ('Apfelkuchen (Vegan)',2,25,40,4,?)
+  INFO 17:51:14 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:51:14 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:51:14 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:51:14 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:51:14 INSERT INTO recipebook."Recipe_Ingredients"(ingredient_id,category,amount,recipe_id,unit_id) VALUES (2,'',240.0,1,2)
+  INFO 17:51:14 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:51:14 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:51:14 INSERT INTO recipebook."Recipe_Ingredients"(ingredient_id,category,amount,recipe_id,unit_id) VALUES (3,'',60.0,1,2)
+  INFO 17:51:14 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:51:14 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:51:14 INSERT INTO recipebook."Recipe_Ingredients"(ingredient_id,category,amount,recipe_id,unit_id) VALUES (4,'',600.0,1,2)
+  INFO 17:51:14 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:51:14 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:51:14 INSERT INTO recipebook."Recipe_Ingredients"(ingredient_id,category,amount,recipe_id,unit_id) VALUES (5,'',48.0,1,2)
+  INFO 17:51:14 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:51:14 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:51:14 INSERT INTO recipebook."Recipe_Ingredients"(ingredient_id,category,amount,recipe_id,unit_id) VALUES (6,'',8.0,1,2)
+  INFO 17:51:14 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:51:14 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:51:14 INSERT INTO recipebook."Recipe_Ingredients"(ingredient_id,category,amount,recipe_id,unit_id) VALUES (7,'',28.0,1,2)
+  INFO 17:51:14 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:51:14 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:51:14 INSERT INTO recipebook."Recipe_Ingredients"(ingredient_id,category,amount,recipe_id,unit_id) VALUES (8,'',96.0,1,2)
+  INFO 17:51:14 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:51:14 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:51:14 INSERT INTO recipebook."Recipe_Ingredients"(ingredient_id,category,amount,recipe_id,unit_id) VALUES (9,'',480.0,1,2)
+SEVERE 17:51:14 [org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2674), org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2364), org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:354), org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:484), org.postgresql.jdbc.PgStatement.execute(PgStatement.java:404), org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:162), org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:130), de.amit.controller.JDBCDriverConnection.executeAdd(JDBCDriverConnection.java:46), de.amit.controller.serviceTemplates.CategoryServiceImpl.add(CategoryServiceImpl.java:29), de.amit.controller.recipebook.serviceTemplates.RecipeIngredientController.add(RecipeIngredientController.java:55), de.amit.LaunchApplication.main(LaunchApplication.java:80)]
+  INFO 17:52:01 DROP TABLE IF EXISTS recipebook."Recipe_Ingredients" CASCADE;
+  INFO 17:52:01 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:52:01 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:52:01 DROP TABLE IF EXISTS recipebook."Recipes" CASCADE;
+  INFO 17:52:01 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:52:01 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:52:01 DROP TABLE IF EXISTS recipebook."Units" CASCADE;
+  INFO 17:52:01 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:52:01 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:52:01 DROP TABLE IF EXISTS recipebook."Kinds" CASCADE;
+  INFO 17:52:01 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:52:01 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:52:01 DROP TABLE IF EXISTS recipebook."Ingredients" CASCADE;
+  INFO 17:52:01 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:52:01 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:52:01 Database deleted
+  INFO 17:52:01 CREATE SCHEMA IF NOT EXISTS recipebook;
+  INFO 17:52:01 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:52:01 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:52:01 CREATE TABLE IF NOT EXISTS recipebook."Ingredients" ( id serial PRIMARY KEY, name text NOT NULL, protein numeric, carbohydrates numeric, fat numeric );
+  INFO 17:52:01 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:52:01 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:52:01 CREATE TABLE IF NOT EXISTS recipebook."Kinds" ( id serial PRIMARY KEY, name text NOT NULL );
+  INFO 17:52:01 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:52:01 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:52:01 CREATE TABLE IF NOT EXISTS recipebook."Units" ( id serial PRIMARY KEY, name text NOT NULL );
+  INFO 17:52:01 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:52:01 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:52:01 CREATE TABLE IF NOT EXISTS recipebook."Recipes" ( id serial PRIMARY KEY, title text NOT NULL, difficulty integer NOT NULL, preparation integer NOT NULL, cooking integer NOT NULL, kind_id integer NOT NULL, instructions text[],  CONSTRAINT "kind_fk" FOREIGN KEY (kind_id) REFERENCES recipebook."Kinds" (id) );
+  INFO 17:52:01 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:52:01 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:52:01 CREATE TABLE IF NOT EXISTS recipebook."Recipe_Ingredients" ( id serial PRIMARY KEY, ingredient_id integer NOT NULL, category text, amount numeric, recipe_id integer NOT NULL, unit_id integer NOT NULL,  CONSTRAINT "ingredient_fk" FOREIGN KEY (ingredient_id) REFERENCES recipebook."Ingredients" (id), CONSTRAINT "recipe_fk" FOREIGN KEY (recipe_id) REFERENCES recipebook."Recipes" (id), CONSTRAINT "unit_fk" FOREIGN KEY(unit_id) REFERENCES recipebook."Units" (id) );
+  INFO 17:52:01 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:52:01 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:52:01 CREATE SCHEMA IF NOT EXISTS dogschool;
+  INFO 17:52:01 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:52:01 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:52:01 CREATE TABLE IF NOT EXISTS dogschool."Course" ( id uuid PRIMARY KEY DEFAULT gen_random_uuid(), name text NOT NULL );
+  INFO 17:52:01 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:52:01 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:52:01 CREATE TABLE IF NOT EXISTS dogschool."Section" ( id uuid PRIMARY KEY, name text NOT NULL, course_id uuid NOT NULL,  CONSTRAINT "course_fk" FOREIGN KEY (course_id) REFERENCES dogschool."Course" (id) );
+  INFO 17:52:01 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:52:01 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:52:01 CREATE TABLE IF NOT EXISTS dogschool."Video" ( id uuid PRIMARY KEY DEFAULT gen_random_uuid(), name text NOT NULL, section_id uuid NOT NULL,  CONSTRAINT "section_fk" FOREIGN KEY (section_id) REFERENCES dogschool."Section" (id) );
+  INFO 17:52:01 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:52:01 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:52:01 Database created
+  INFO 17:52:01 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:52:01 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:52:01 INSERT INTO recipebook."Ingredients"(name) VALUES ('Haferflocken')
+  INFO 17:52:01 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:52:01 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:52:01 INSERT INTO recipebook."Ingredients"(name) VALUES ('Vanilleproteinpulver')
+  INFO 17:52:01 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:52:01 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:52:01 INSERT INTO recipebook."Ingredients"(name) VALUES ('Äpfel')
+  INFO 17:52:01 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:52:01 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:52:01 INSERT INTO recipebook."Ingredients"(name) VALUES ('Brauner Zucker')
+  INFO 17:52:01 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:52:01 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:52:01 INSERT INTO recipebook."Ingredients"(name) VALUES ('Zimt')
+  INFO 17:52:01 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:52:01 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:52:01 INSERT INTO recipebook."Ingredients"(name) VALUES ('Butter (Vegan)')
+  INFO 17:52:01 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:52:02 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:52:02 INSERT INTO recipebook."Ingredients"(name) VALUES ('Apfelmus')
+  INFO 17:52:02 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:52:02 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:52:02 INSERT INTO recipebook."Ingredients"(name) VALUES ('Hafermilch')
+  INFO 17:52:02 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:52:02 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:52:02 INSERT INTO recipebook."Units"(name) VALUES ('g')
+  INFO 17:52:02 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:52:02 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:52:02 INSERT INTO recipebook."Units"(name) VALUES ('ml')
+  INFO 17:52:02 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:52:02 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:52:02 INSERT INTO recipebook."Units"(name) VALUES ('Etwas')
+  INFO 17:52:02 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:52:02 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:52:02 INSERT INTO recipebook."Kinds"(name) VALUES ('Vorspeise')
+  INFO 17:52:02 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:52:02 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:52:02 INSERT INTO recipebook."Kinds"(name) VALUES ('Hauptspeise')
+  INFO 17:52:02 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:52:02 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:52:02 INSERT INTO recipebook."Kinds"(name) VALUES ('Dessert')
+  INFO 17:52:02 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:52:02 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:52:02 INSERT INTO recipebook."Kinds"(name) VALUES ('Süßspeise')
+  INFO 17:52:02 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:52:02 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:52:02 INSERT INTO recipebook."Recipes"(title,difficulty,preparation,cooking,kind_id,instructions) VALUES ('Apfelkuchen (Vegan)',2,25,40,4,?)
+  INFO 17:52:02 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:52:02 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:52:02 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:52:02 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:52:02 INSERT INTO recipebook."Recipe_Ingredients"(ingredient_id,category,amount,recipe_id,unit_id) VALUES (1,'',240.0,1,2)
+  INFO 17:52:02 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:52:02 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:52:02 INSERT INTO recipebook."Recipe_Ingredients"(ingredient_id,category,amount,recipe_id,unit_id) VALUES (2,'',60.0,1,2)
+  INFO 17:52:02 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:52:02 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:52:02 INSERT INTO recipebook."Recipe_Ingredients"(ingredient_id,category,amount,recipe_id,unit_id) VALUES (3,'',600.0,1,2)
+  INFO 17:52:02 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:52:02 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:52:02 INSERT INTO recipebook."Recipe_Ingredients"(ingredient_id,category,amount,recipe_id,unit_id) VALUES (4,'',48.0,1,2)
+  INFO 17:52:02 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:52:02 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:52:02 INSERT INTO recipebook."Recipe_Ingredients"(ingredient_id,category,amount,recipe_id,unit_id) VALUES (5,'',8.0,1,2)
+  INFO 17:52:02 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:52:02 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:52:02 INSERT INTO recipebook."Recipe_Ingredients"(ingredient_id,category,amount,recipe_id,unit_id) VALUES (6,'',28.0,1,2)
+  INFO 17:52:02 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:52:02 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:52:02 INSERT INTO recipebook."Recipe_Ingredients"(ingredient_id,category,amount,recipe_id,unit_id) VALUES (7,'',96.0,1,2)
+  INFO 17:52:02 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:52:02 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:52:02 INSERT INTO recipebook."Recipe_Ingredients"(ingredient_id,category,amount,recipe_id,unit_id) VALUES (8,'',480.0,1,2)
+  INFO 17:52:17 DROP TABLE IF EXISTS recipebook."Recipe_Ingredients" CASCADE;
+  INFO 17:52:17 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:52:17 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:52:17 DROP TABLE IF EXISTS recipebook."Recipes" CASCADE;
+  INFO 17:52:17 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:52:17 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:52:17 DROP TABLE IF EXISTS recipebook."Units" CASCADE;
+  INFO 17:52:17 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:52:17 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:52:17 DROP TABLE IF EXISTS recipebook."Kinds" CASCADE;
+  INFO 17:52:17 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:52:17 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:52:17 DROP TABLE IF EXISTS recipebook."Ingredients" CASCADE;
+  INFO 17:52:17 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:52:17 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:52:17 Database deleted
+  INFO 17:52:17 CREATE SCHEMA IF NOT EXISTS recipebook;
+  INFO 17:52:17 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:52:17 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:52:17 CREATE TABLE IF NOT EXISTS recipebook."Ingredients" ( id serial PRIMARY KEY, name text NOT NULL, protein numeric, carbohydrates numeric, fat numeric );
+  INFO 17:52:17 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:52:17 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:52:17 CREATE TABLE IF NOT EXISTS recipebook."Kinds" ( id serial PRIMARY KEY, name text NOT NULL );
+  INFO 17:52:17 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:52:17 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:52:17 CREATE TABLE IF NOT EXISTS recipebook."Units" ( id serial PRIMARY KEY, name text NOT NULL );
+  INFO 17:52:17 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:52:17 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:52:17 CREATE TABLE IF NOT EXISTS recipebook."Recipes" ( id serial PRIMARY KEY, title text NOT NULL, difficulty integer NOT NULL, preparation integer NOT NULL, cooking integer NOT NULL, kind_id integer NOT NULL, instructions text[],  CONSTRAINT "kind_fk" FOREIGN KEY (kind_id) REFERENCES recipebook."Kinds" (id) );
+  INFO 17:52:17 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:52:17 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:52:17 CREATE TABLE IF NOT EXISTS recipebook."Recipe_Ingredients" ( id serial PRIMARY KEY, ingredient_id integer NOT NULL, category text, amount numeric, recipe_id integer NOT NULL, unit_id integer NOT NULL,  CONSTRAINT "ingredient_fk" FOREIGN KEY (ingredient_id) REFERENCES recipebook."Ingredients" (id), CONSTRAINT "recipe_fk" FOREIGN KEY (recipe_id) REFERENCES recipebook."Recipes" (id), CONSTRAINT "unit_fk" FOREIGN KEY(unit_id) REFERENCES recipebook."Units" (id) );
+  INFO 17:52:17 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:52:17 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:52:17 CREATE SCHEMA IF NOT EXISTS dogschool;
+  INFO 17:52:17 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:52:17 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:52:17 CREATE TABLE IF NOT EXISTS dogschool."Course" ( id uuid PRIMARY KEY DEFAULT gen_random_uuid(), name text NOT NULL );
+  INFO 17:52:17 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:52:17 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:52:17 CREATE TABLE IF NOT EXISTS dogschool."Section" ( id uuid PRIMARY KEY, name text NOT NULL, course_id uuid NOT NULL,  CONSTRAINT "course_fk" FOREIGN KEY (course_id) REFERENCES dogschool."Course" (id) );
+  INFO 17:52:17 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:52:17 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:52:17 CREATE TABLE IF NOT EXISTS dogschool."Video" ( id uuid PRIMARY KEY DEFAULT gen_random_uuid(), name text NOT NULL, section_id uuid NOT NULL,  CONSTRAINT "section_fk" FOREIGN KEY (section_id) REFERENCES dogschool."Section" (id) );
+  INFO 17:52:17 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:52:17 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:52:17 Database created
+  INFO 17:52:17 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:52:17 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:52:17 INSERT INTO recipebook."Ingredients"(name) VALUES ('Haferflocken')
+  INFO 17:52:17 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:52:17 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:52:17 INSERT INTO recipebook."Ingredients"(name) VALUES ('Vanilleproteinpulver')
+  INFO 17:52:17 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:52:17 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:52:17 INSERT INTO recipebook."Ingredients"(name) VALUES ('Äpfel')
+  INFO 17:52:17 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:52:17 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:52:17 INSERT INTO recipebook."Ingredients"(name) VALUES ('Brauner Zucker')
+  INFO 17:52:17 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:52:17 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:52:17 INSERT INTO recipebook."Ingredients"(name) VALUES ('Zimt')
+  INFO 17:52:17 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:52:17 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:52:17 INSERT INTO recipebook."Ingredients"(name) VALUES ('Butter (Vegan)')
+  INFO 17:52:17 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:52:17 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:52:17 INSERT INTO recipebook."Ingredients"(name) VALUES ('Apfelmus')
+  INFO 17:52:17 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:52:17 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:52:17 INSERT INTO recipebook."Ingredients"(name) VALUES ('Hafermilch')
+  INFO 17:52:18 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:52:18 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:52:18 INSERT INTO recipebook."Units"(name) VALUES ('g')
+  INFO 17:52:18 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:52:18 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:52:18 INSERT INTO recipebook."Units"(name) VALUES ('ml')
+  INFO 17:52:18 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:52:18 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:52:18 INSERT INTO recipebook."Units"(name) VALUES ('Etwas')
+  INFO 17:52:18 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:52:18 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:52:18 INSERT INTO recipebook."Kinds"(name) VALUES ('Vorspeise')
+  INFO 17:52:18 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:52:18 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:52:18 INSERT INTO recipebook."Kinds"(name) VALUES ('Hauptspeise')
+  INFO 17:52:18 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:52:18 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:52:18 INSERT INTO recipebook."Kinds"(name) VALUES ('Dessert')
+  INFO 17:52:18 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:52:18 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:52:18 INSERT INTO recipebook."Kinds"(name) VALUES ('Süßspeise')
+  INFO 17:52:18 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:52:18 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:52:18 INSERT INTO recipebook."Recipes"(title,difficulty,preparation,cooking,kind_id,instructions) VALUES ('Apfelkuchen (Vegan)',2,25,40,4,?)
+  INFO 17:52:18 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:52:18 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:52:18 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:52:18 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:52:18 INSERT INTO recipebook."Recipe_Ingredients"(ingredient_id,category,amount,recipe_id,unit_id) VALUES (1,'',240.0,1,2)
+  INFO 17:52:18 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:52:18 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:52:18 INSERT INTO recipebook."Recipe_Ingredients"(ingredient_id,category,amount,recipe_id,unit_id) VALUES (2,'',60.0,1,2)
+  INFO 17:52:18 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:52:18 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:52:18 INSERT INTO recipebook."Recipe_Ingredients"(ingredient_id,category,amount,recipe_id,unit_id) VALUES (3,'',600.0,1,2)
+  INFO 17:52:18 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:52:18 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:52:18 INSERT INTO recipebook."Recipe_Ingredients"(ingredient_id,category,amount,recipe_id,unit_id) VALUES (4,'',48.0,1,2)
+  INFO 17:52:18 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:52:18 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:52:18 INSERT INTO recipebook."Recipe_Ingredients"(ingredient_id,category,amount,recipe_id,unit_id) VALUES (5,'',8.0,1,2)
+  INFO 17:52:18 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:52:18 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:52:18 INSERT INTO recipebook."Recipe_Ingredients"(ingredient_id,category,amount,recipe_id,unit_id) VALUES (6,'',28.0,1,2)
+  INFO 17:52:18 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:52:18 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:52:18 INSERT INTO recipebook."Recipe_Ingredients"(ingredient_id,category,amount,recipe_id,unit_id) VALUES (7,'',96.0,1,2)
+  INFO 17:52:18 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:52:18 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:52:18 INSERT INTO recipebook."Recipe_Ingredients"(ingredient_id,category,amount,recipe_id,unit_id) VALUES (8,'',480.0,1,2)
+  INFO 17:52:23 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:52:23 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:52:23 INSERT INTO recipebook."Recipes"(title,difficulty,preparation,cooking,kind_id,instructions) VALUES ('Titel',4,13,15,2,?)
+  INFO 17:52:23 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:52:23 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:52:23 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:52:23 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:52:23 INSERT INTO recipebook."Recipe_Ingredients"(ingredient_id,category,amount,recipe_id,unit_id) VALUES (1,'0',7.0,2,2)
+  INFO 17:52:23 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:52:23 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:52:23 INSERT INTO recipebook."Recipe_Ingredients"(ingredient_id,category,amount,recipe_id,unit_id) VALUES (2,'0',16.0,2,3)
+  INFO 17:52:23 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:52:23 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:52:23 INSERT INTO recipebook."Recipe_Ingredients"(ingredient_id,category,amount,recipe_id,unit_id) VALUES (2,'1',14.0,2,4)
+SEVERE 17:52:23 [org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2674), org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2364), org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:354), org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:484), org.postgresql.jdbc.PgStatement.execute(PgStatement.java:404), org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:162), org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:130), de.amit.controller.JDBCDriverConnection.executeAdd(JDBCDriverConnection.java:46), de.amit.controller.serviceTemplates.CategoryServiceImpl.add(CategoryServiceImpl.java:29), de.amit.controller.recipebook.serviceTemplates.RecipeIngredientController.add(RecipeIngredientController.java:55), java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104), java.base/java.lang.reflect.Method.invoke(Method.java:577), org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:207), org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:152), org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118), org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:884), org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:797), org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87), org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1081), org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:974), org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1011), org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914), jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590), org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885), jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658), org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205), org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149), org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51), org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174), org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149), de.amit.cors.CorsFilter.doFilter(CorsFilter.java:26), org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174), org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149), org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100), org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116), org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174), org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149), org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93), org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116), org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174), org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149), org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201), org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116), org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174), org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149), org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:166), org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90), org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482), org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115), org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93), org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74), org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:341), org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:390), org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63), org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:894), org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741), org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52), org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191), org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659), org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61), java.base/java.lang.Thread.run(Thread.java:833)]
+  INFO 17:52:23 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:52:23 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:52:23 INSERT INTO recipebook."Recipe_Ingredients"(ingredient_id,category,amount,recipe_id,unit_id) VALUES (3,'1',15.0,2,3)
+  INFO 17:53:17 SELECT * FROM recipebook."Ingredients"  ORDER BY id ASC
+  INFO 17:53:17 Verbindung zur Datenbank wird versucht aufzubauen.
+  INFO 17:53:17 SELECT * FROM recipebook."Kinds"  ORDER BY id ASC
+  INFO 17:53:17 Verbindung zur Datenbank wird versucht aufzubauen.
+  INFO 17:53:17 SELECT * FROM recipebook."Units"  ORDER BY id ASC
+  INFO 17:53:17 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:53:17 Verbindung zur Datenbank wurde aufgebaut.
+  FINE 17:53:17 Verbindung zur Datenbank wurde aufgebaut.
+  FINE 17:53:17 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:53:25 DROP TABLE IF EXISTS recipebook."Recipe_Ingredients" CASCADE;
+  INFO 17:53:25 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:53:25 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:53:25 DROP TABLE IF EXISTS recipebook."Recipes" CASCADE;
+  INFO 17:53:25 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:53:25 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:53:25 DROP TABLE IF EXISTS recipebook."Units" CASCADE;
+  INFO 17:53:25 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:53:25 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:53:25 DROP TABLE IF EXISTS recipebook."Kinds" CASCADE;
+  INFO 17:53:25 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:53:25 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:53:25 DROP TABLE IF EXISTS recipebook."Ingredients" CASCADE;
+  INFO 17:53:25 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:53:25 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:53:25 Database deleted
+  INFO 17:53:25 CREATE SCHEMA IF NOT EXISTS recipebook;
+  INFO 17:53:25 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:53:25 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:53:25 CREATE TABLE IF NOT EXISTS recipebook."Ingredients" ( id serial PRIMARY KEY, name text NOT NULL, protein numeric, carbohydrates numeric, fat numeric );
+  INFO 17:53:25 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:53:25 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:53:25 CREATE TABLE IF NOT EXISTS recipebook."Kinds" ( id serial PRIMARY KEY, name text NOT NULL );
+  INFO 17:53:25 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:53:25 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:53:25 CREATE TABLE IF NOT EXISTS recipebook."Units" ( id serial PRIMARY KEY, name text NOT NULL );
+  INFO 17:53:25 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:53:25 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:53:25 CREATE TABLE IF NOT EXISTS recipebook."Recipes" ( id serial PRIMARY KEY, title text NOT NULL, difficulty integer NOT NULL, preparation integer NOT NULL, cooking integer NOT NULL, kind_id integer NOT NULL, instructions text[],  CONSTRAINT "kind_fk" FOREIGN KEY (kind_id) REFERENCES recipebook."Kinds" (id) );
+  INFO 17:53:25 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:53:25 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:53:25 CREATE TABLE IF NOT EXISTS recipebook."Recipe_Ingredients" ( id serial PRIMARY KEY, ingredient_id integer NOT NULL, category text, amount numeric, recipe_id integer NOT NULL, unit_id integer NOT NULL,  CONSTRAINT "ingredient_fk" FOREIGN KEY (ingredient_id) REFERENCES recipebook."Ingredients" (id), CONSTRAINT "recipe_fk" FOREIGN KEY (recipe_id) REFERENCES recipebook."Recipes" (id), CONSTRAINT "unit_fk" FOREIGN KEY(unit_id) REFERENCES recipebook."Units" (id) );
+  INFO 17:53:25 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:53:25 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:53:25 CREATE SCHEMA IF NOT EXISTS dogschool;
+  INFO 17:53:25 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:53:25 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:53:25 CREATE TABLE IF NOT EXISTS dogschool."Course" ( id uuid PRIMARY KEY DEFAULT gen_random_uuid(), name text NOT NULL );
+  INFO 17:53:25 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:53:25 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:53:25 CREATE TABLE IF NOT EXISTS dogschool."Section" ( id uuid PRIMARY KEY, name text NOT NULL, course_id uuid NOT NULL,  CONSTRAINT "course_fk" FOREIGN KEY (course_id) REFERENCES dogschool."Course" (id) );
+  INFO 17:53:25 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:53:25 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:53:25 CREATE TABLE IF NOT EXISTS dogschool."Video" ( id uuid PRIMARY KEY DEFAULT gen_random_uuid(), name text NOT NULL, section_id uuid NOT NULL,  CONSTRAINT "section_fk" FOREIGN KEY (section_id) REFERENCES dogschool."Section" (id) );
+  INFO 17:53:25 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:53:26 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:53:26 Database created
+  INFO 17:53:26 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:53:26 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:53:26 INSERT INTO recipebook."Ingredients"(name) VALUES ('Haferflocken')
+  INFO 17:53:26 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:53:26 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:53:26 INSERT INTO recipebook."Ingredients"(name) VALUES ('Vanilleproteinpulver')
+  INFO 17:53:26 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:53:26 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:53:26 INSERT INTO recipebook."Ingredients"(name) VALUES ('Äpfel')
+  INFO 17:53:26 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:53:26 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:53:26 INSERT INTO recipebook."Ingredients"(name) VALUES ('Brauner Zucker')
+  INFO 17:53:26 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:53:26 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:53:26 INSERT INTO recipebook."Ingredients"(name) VALUES ('Zimt')
+  INFO 17:53:26 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:53:26 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:53:26 INSERT INTO recipebook."Ingredients"(name) VALUES ('Butter (Vegan)')
+  INFO 17:53:26 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:53:26 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:53:26 INSERT INTO recipebook."Ingredients"(name) VALUES ('Apfelmus')
+  INFO 17:53:26 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:53:26 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:53:26 INSERT INTO recipebook."Ingredients"(name) VALUES ('Hafermilch')
+  INFO 17:53:26 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:53:26 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:53:26 INSERT INTO recipebook."Units"(name) VALUES ('g')
+  INFO 17:53:26 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:53:26 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:53:26 INSERT INTO recipebook."Units"(name) VALUES ('ml')
+  INFO 17:53:26 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:53:26 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:53:26 INSERT INTO recipebook."Units"(name) VALUES ('Etwas')
+  INFO 17:53:26 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:53:26 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:53:26 INSERT INTO recipebook."Kinds"(name) VALUES ('Vorspeise')
+  INFO 17:53:26 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:53:26 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:53:26 INSERT INTO recipebook."Kinds"(name) VALUES ('Hauptspeise')
+  INFO 17:53:26 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:53:26 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:53:26 INSERT INTO recipebook."Kinds"(name) VALUES ('Dessert')
+  INFO 17:53:26 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:53:26 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:53:26 INSERT INTO recipebook."Kinds"(name) VALUES ('Süßspeise')
+  INFO 17:53:26 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:53:26 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:53:26 INSERT INTO recipebook."Recipes"(title,difficulty,preparation,cooking,kind_id,instructions) VALUES ('Apfelkuchen (Vegan)',2,25,40,4,?)
+  INFO 17:53:26 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:53:26 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:53:26 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:53:26 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:53:26 INSERT INTO recipebook."Recipe_Ingredients"(ingredient_id,category,amount,recipe_id,unit_id) VALUES (1,'',240.0,1,2)
+  INFO 17:53:26 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:53:26 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:53:26 INSERT INTO recipebook."Recipe_Ingredients"(ingredient_id,category,amount,recipe_id,unit_id) VALUES (2,'',60.0,1,2)
+  INFO 17:53:26 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:53:26 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:53:26 INSERT INTO recipebook."Recipe_Ingredients"(ingredient_id,category,amount,recipe_id,unit_id) VALUES (3,'',600.0,1,2)
+  INFO 17:53:26 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:53:26 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:53:26 INSERT INTO recipebook."Recipe_Ingredients"(ingredient_id,category,amount,recipe_id,unit_id) VALUES (4,'',48.0,1,2)
+  INFO 17:53:26 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:53:26 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:53:26 INSERT INTO recipebook."Recipe_Ingredients"(ingredient_id,category,amount,recipe_id,unit_id) VALUES (5,'',8.0,1,2)
+  INFO 17:53:26 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:53:26 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:53:26 INSERT INTO recipebook."Recipe_Ingredients"(ingredient_id,category,amount,recipe_id,unit_id) VALUES (6,'',28.0,1,2)
+  INFO 17:53:26 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:53:26 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:53:26 INSERT INTO recipebook."Recipe_Ingredients"(ingredient_id,category,amount,recipe_id,unit_id) VALUES (7,'',96.0,1,2)
+  INFO 17:53:26 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:53:26 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:53:26 INSERT INTO recipebook."Recipe_Ingredients"(ingredient_id,category,amount,recipe_id,unit_id) VALUES (8,'',480.0,1,2)
+  INFO 17:53:31 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:53:31 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:53:31 INSERT INTO recipebook."Recipes"(title,difficulty,preparation,cooking,kind_id,instructions) VALUES ('Titel',4,13,15,2,?)
+  INFO 17:53:31 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:53:31 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:53:31 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:53:31 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:53:31 INSERT INTO recipebook."Recipe_Ingredients"(ingredient_id,category,amount,recipe_id,unit_id) VALUES (1,'0',7.0,2,1)
+  INFO 17:53:31 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:53:31 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:53:31 INSERT INTO recipebook."Recipe_Ingredients"(ingredient_id,category,amount,recipe_id,unit_id) VALUES (2,'0',16.0,2,2)
+  INFO 17:53:31 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:53:31 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:53:31 INSERT INTO recipebook."Recipe_Ingredients"(ingredient_id,category,amount,recipe_id,unit_id) VALUES (2,'1',14.0,2,3)
+  INFO 17:53:31 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:53:31 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:53:31 INSERT INTO recipebook."Recipe_Ingredients"(ingredient_id,category,amount,recipe_id,unit_id) VALUES (3,'1',15.0,2,2)
+  INFO 17:54:41 SELECT * FROM recipebook."Ingredients"  ORDER BY id ASC
+  INFO 17:54:41 SELECT * FROM recipebook."Kinds"  ORDER BY id ASC
+  INFO 17:54:41 Verbindung zur Datenbank wird versucht aufzubauen.
+  INFO 17:54:41 SELECT * FROM recipebook."Units"  ORDER BY id ASC
+  INFO 17:54:41 Verbindung zur Datenbank wird versucht aufzubauen.
+  INFO 17:54:41 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:54:41 Verbindung zur Datenbank wurde aufgebaut.
+  FINE 17:54:41 Verbindung zur Datenbank wurde aufgebaut.
+  FINE 17:54:41 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:54:45 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:54:45 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:54:45 INSERT INTO recipebook."Recipes"(title,difficulty,preparation,cooking,kind_id,instructions) VALUES ('Titel',4,13,15,2,?)
+  INFO 17:54:45 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:54:45 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:54:45 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:54:45 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:54:45 INSERT INTO recipebook."Recipe_Ingredients"(ingredient_id,category,amount,recipe_id,unit_id) VALUES (1,'Testkategorie',7.0,3,1)
+  INFO 17:54:45 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:54:45 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:54:45 INSERT INTO recipebook."Recipe_Ingredients"(ingredient_id,category,amount,recipe_id,unit_id) VALUES (2,'Testkategorie',16.0,3,2)
+  INFO 17:54:45 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:54:45 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:54:45 INSERT INTO recipebook."Recipe_Ingredients"(ingredient_id,category,amount,recipe_id,unit_id) VALUES (2,'Testkategorie 2',14.0,3,3)
+  INFO 17:54:45 Verbindung zur Datenbank wird versucht aufzubauen.
+  FINE 17:54:45 Verbindung zur Datenbank wurde aufgebaut.
+  INFO 17:54:45 INSERT INTO recipebook."Recipe_Ingredients"(ingredient_id,category,amount,recipe_id,unit_id) VALUES (3,'Testkategorie 2',15.0,3,2)

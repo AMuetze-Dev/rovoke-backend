@@ -43,7 +43,7 @@ public class IngredientController extends RecipebookController<Ingredient> {
 		return super.change(updateObject);
 	}
 
-	@GetMapping("/{id}")
+	@GetMapping("/get/{id}")
 	public Ingredient get(@PathVariable int id) throws SQLException {
 		return super.get("WHERE id = " + id);
 	}
@@ -51,6 +51,12 @@ public class IngredientController extends RecipebookController<Ingredient> {
 	@GetMapping("/all")
 	public List<Ingredient> getAll() throws SQLException {
 		return super.getAll("");
+	}
+
+	@Override
+	@GetMapping("/remove/{id}")
+	public Response remove(@PathVariable int id) {
+		return super.remove(id);
 	}
 
 	@Override

@@ -15,4 +15,6 @@ public interface CategoryService<T extends Object> {
 	public T get(String whereClause) throws SQLException;
 
 	public List<T> getAll(String whereClause) throws SQLException;
+
+	public Response remove(int id);
 }

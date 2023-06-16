@@ -36,7 +36,7 @@ public class KindController extends AttributeController {
 	}
 
 	@Override
-	@GetMapping("/{id}")
+	@GetMapping("/get/{id}")
 	public AttributeObject get(@PathVariable int id) throws SQLException {
 		return super.get(id);
 	}
@@ -45,5 +45,11 @@ public class KindController extends AttributeController {
 	@GetMapping("/all")
 	public List<AttributeObject> getAll() throws SQLException {
 		return super.getAll();
+	}
+
+	@Override
+	@GetMapping("/remove/{id}")
+	public Response remove(@PathVariable int id) {
+		return super.remove(id);
 	}
 }

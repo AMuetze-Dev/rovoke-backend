@@ -16,13 +16,13 @@ public class JDBCDriverConnection {
 
 	private static final String DB_FILEPATH = "//localhost:5432/postgres?user=root&password=root";
 
-	public static <T> void executeAdd(String destScheme, String destTable, UpdateObject<?>... updateObjects)
-			throws SQLException {
+	public synchronized static <T> void executeAdd(String destScheme, String destTable,
+			UpdateObject<?>... updateObjects) throws SQLException {
 		String prep = "";
 		String query = String.format("INSERT INTO %s.\"%s\"(", destScheme, destTable);
 		for (int i = 0; i < updateObjects.length; i++) {
 			query += updateObjects[i].getColumn();
-			prep += updateObjects[i].isType(String[].class) ? "?::text[]" : "?";
+			prep += "?";
 			if (i + 1 != updateObjects.length) {
 				query += ",";
 				prep += ",";
@@ -41,6 +41,16 @@ public class JDBCDriverConnection {
 				statement.setDouble(i + 1, (double) updateObjects[i].getValue());
 			else
 				statement.setArray(i + 1, con.createArrayOf("text", (String[]) updateObjects[i].getValue()));
+
+		LoggerService.info(statement.toString());
+		statement.executeUpdate();
+		con.close();
+	}
+
+	public static void executeDelete(String destScheme, String destTable, int id) throws SQLException {
+		final String query = String.format("DELETE FROM %s.\"%s\" WHERE id = %d", destScheme, destTable, id);
+		final Connection con = getConnection();
+		final PreparedStatement statement = con.prepareStatement(query);
 		LoggerService.info(statement.toString());
 		statement.executeUpdate();
 		con.close();
@@ -76,7 +86,7 @@ public class JDBCDriverConnection {
 		con.close();
 	}
 
-	static Connection getConnection() throws SQLException {
+	public static Connection getConnection() throws SQLException {
 		LoggerService.info("Verbindung zur Datenbank wird versucht aufzubauen.");
 		Connection connection = null;
 		try {
